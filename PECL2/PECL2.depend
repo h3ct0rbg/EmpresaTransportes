@@ -1,0 +1,190 @@
+# depslib dependency file v1.0
+1669992071 source:d:\gitpecl2\pecl2\pecl2\lista.cpp
+	"lista.h"
+
+1669992071 d:\gitpecl2\pecl2\pecl2\lista.h
+	<iostream>
+
+1669991874 source:d:\gitpecl2\pecl2\pecl2\listas_dobles.cpp
+	"listas_dobles.h"
+
+1669991639 d:\gitpecl2\pecl2\pecl2\listas_dobles.h
+	<iostream>
+
+1669993166 source:d:\gitpecl2\pecl2\pecl2\main.cpp
+	"lista.h"
+	"listas_dobles.h"
+	"ArbolABB.h"
+	<iostream>
+
+1669993072 source:d:\gitpecl2\pecl2\pecl2\arbolabb.cpp
+	"ArbolABB.h"
+
+1669993286 d:\gitpecl2\pecl2\pecl2\arbolabb.h
+	<iostream>
+
+1670353617 source:d:\gitpecl2\pecl2_empresatransporte\pecl2\arbolabb.cpp
+	"ArbolABB.h"
+
+1670353481 d:\gitpecl2\pecl2_empresatransporte\pecl2\arbolabb.h
+	"concesionario.h"
+	<iostream>
+
+1669992071 source:d:\gitpecl2\pecl2_empresatransporte\pecl2\lista.cpp
+	"lista.h"
+
+1670249216 d:\gitpecl2\pecl2_empresatransporte\pecl2\lista.h
+	<iostream>
+
+1670327624 source:d:\gitpecl2\pecl2_empresatransporte\pecl2\listas_dobles.cpp
+	"listas_dobles.h"
+
+1670326714 d:\gitpecl2\pecl2_empresatransporte\pecl2\listas_dobles.h
+	"automovil.h"
+	<iostream>
+
+1670324150 source:d:\gitpecl2\pecl2_empresatransporte\pecl2\automovil.cpp
+	"automovil.h"
+
+1670326872 d:\gitpecl2\pecl2_empresatransporte\pecl2\automovil.h
+	<iostream>
+
+1670353972 source:d:\gitpecl2\pecl2_empresatransporte\pecl2\main.cpp
+	"arbolABB.h"
+	"automovil.h"
+	"gestor.h"
+	<iostream>
+	"concesionario.h"
+
+1670353624 source:d:\gitpecl2\pecl2_empresatransporte\pecl2\concesionario.cpp
+	"concesionario.h"
+	"arbolABB.h"
+
+1670353265 d:\gitpecl2\pecl2_empresatransporte\pecl2\concesionario.h
+	"listas_dobles.h"
+	"concesionario.h"
+	<iostream>
+
+1669996361 source:d:\gitpecl2\pecl2_empresatransporte\pecl2\pila.cpp
+	"Pila.h"
+
+1669996978 d:\gitpecl2\pecl2_empresatransporte\pecl2\pila.h
+	<iostream>
+	"automovil.h"
+
+1670330468 D
+
+1670327624 source:d:\gitpecl2\pecl2_empresatransporte\pecl2\gestor.cpp
+	"gestor.h"
+	"arbolABB.h"
+	"listas_dobles.h"
+	"concesionario.h"
+
+1670250062 
+
+1670151299 ent of 49f4861 (resuelto error del nodoArbol)
+	"automovil.h"
+	"listas_dobles.h"
+	"listas_dobles.h"
+
+1670354013 d:\gitpecl2\pecl2_empresatransporte\pecl2\gestor.h
+	"automovil.h"
+	"listas_dobles.h"
+	"arbolABB.h"
+	"concesionario.h"
+
+1670229852 source:c:\users\jsanchez\git\pecl2_empresatransporte\pecl2\automovil.cpp
+	"automovil.h"
+
+1670229852 c:\users\jsanchez\git\pecl2_empresatransporte\pecl2\automovil.h
+	<iostream>
+
+1670229852 source:c:\users\jsanchez\git\pecl2_empresatransporte\pecl2\concesionario.cpp
+	"Concesionario.h"
+	"listas_dobles.h"
+
+1670229852 c:\users\jsanchez\git\pecl2_empresatransporte\pecl2\concesionario.h
+	"listas_dobles.h"
+	<iostream>
+
+1670229852 c:\users\jsanchez\git\pecl2_empresatransporte\pecl2\listas_dobles.h
+	"automovil.h"
+	<iostream>
+
+1670229852 source:c:\users\jsanchez\git\pecl2_empresatransporte\pecl2\lista.cpp
+	"lista.h"
+
+1670229852 c:\users\jsanchez\git\pecl2_empresatransporte\pecl2\lista.h
+	<iostream>
+
+1670229852 source:c:\users\jsanchez\git\pecl2_empresatransporte\pecl2\listas_dobles.cpp
+	"listas_dobles.h"
+
+1670229852 source:c:\users\jsanchez\git\pecl2_empresatransporte\pecl2\pila.cpp
+	"Pila.h"
+
+1670229852 c:\users\jsanchez\git\pecl2_empresatransporte\pecl2\pila.h
+	<iostream>
+	"automovil.h"
+
+1670324149 source:c:\users\hbena\documents\github\pecl2_empresatransporte\pecl2\automovil.cpp
+	"automovil.h"
+
+1670329827 c:\users\hbena\documents\github\pecl2_empresatransporte\pecl2\automovil.h
+	<iostream>
+
+1670360173 source:c:\users\hbena\documents\github\pecl2_empresatransporte\pecl2\concesionario.cpp
+	"concesionario.h"
+	"arbolABB.h"
+
+1670360935 c:\users\hbena\documents\github\pecl2_empresatransporte\pecl2\concesionario.h
+	"listas_dobles.h"
+	"concesionario.h"
+	<iostream>
+
+1670359391 c:\users\hbena\documents\github\pecl2_empresatransporte\pecl2\listas_dobles.h
+	"automovil.h"
+	<iostream>
+
+1670361497 source:c:\users\hbena\documents\github\pecl2_empresatransporte\pecl2\gestor.cpp
+	"gestor.h"
+	"arbolABB.h"
+	"listas_dobles.h"
+	"concesionario.h"
+
+1670360742 c:\users\hbena\documents\github\pecl2_empresatransporte\pecl2\gestor.h
+	"automovil.h"
+	"listas_dobles.h"
+	"arbolABB.h"
+	"concesionario.h"
+
+1670327623 5c677db7e24287c95453c7f50ac67544e948e
+	"automovil.h"
+	"listas_dobles.h"
+	"arbolABB.h"
+	"concesionario.h"
+
+1670320996 source:c:\users\hbena\documents\github\pecl2_empresatransporte\pecl2\lista.cpp
+	"lista.h"
+
+1670320996 c:\users\hbena\documents\github\pecl2_empresatransporte\pecl2\lista.h
+	<iostream>
+
+1670352217 source:c:\users\hbena\documents\github\pecl2_empresatransporte\pecl2\listas_dobles.cpp
+	"listas_dobles.h"
+
+1670361518 source:c:\users\hbena\documents\github\pecl2_empresatransporte\pecl2\main.cpp
+	"time.h"
+	"arbolABB.h"
+	"automovil.h"
+	"gestor.h"
+	<iostream>
+	"concesionario.h"
+
+1670354625 c:\users\hbena\documents\github\pecl2_empresatransporte\pecl2\arbolabb.h
+	"concesionario.h"
+	<iostream>
+
+1670354663 source:c:\users\hbena\documents\github\pecl2_empresatransporte\pecl2\arbolabb.cpp
+	"ArbolABB.h"
+

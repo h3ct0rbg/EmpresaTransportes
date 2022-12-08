@@ -82,6 +82,7 @@ int main()
 
             case 4:
                 system("cls");
+                almacen.~ListaD();
                 system("pause");
                 break;
 

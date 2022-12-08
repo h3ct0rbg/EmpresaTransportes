@@ -13,8 +13,8 @@ struct Automovil {
     int concesionario;
 };
 
-void escribeAutomovil (Automovil p);
-Automovil dameAutomovilVacio (void);
+void escribeAutomovil(Automovil p);
+Automovil dameAutomovilVacio(void);
 string generaBastidor(void);
 Automovil generarAutomovil(void);
 

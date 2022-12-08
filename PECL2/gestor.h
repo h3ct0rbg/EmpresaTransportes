@@ -6,19 +6,7 @@
 #include "arbolABB.h"
 #include "concesionario.h"
 
-ArbolABB generarArbolConcesionarios();
-/*
-class Gestor
-{
-    private:
-        ArbolABB concesionarios;
+ArbolABB generarArbolConcesionarios(void);
 
-    public:
-        Gestor(){
-            concesionarios = generarArbolConcesionarios();
-            //almacen = ListaD();
-        }
-};
-*/
 #endif // GESTOR_H
 

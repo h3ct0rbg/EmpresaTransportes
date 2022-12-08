@@ -39,8 +39,10 @@ class ListaD
         }
         ~ListaD();
         void insertarNodoListaD(Automovil v, char c);
+        void mostrarLista(int orden);
         bool listaVacia();
         void esPrimero();
+        void esUltimo();
 
         //Getter
         int getLongitud(){

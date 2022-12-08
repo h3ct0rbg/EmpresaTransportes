@@ -1,9 +1,10 @@
+#include <iostream>
 #include "time.h"
 #include "arbolABB.h"
 #include "automovil.h"
 #include "gestor.h"
-#include <iostream>
 #include "concesionario.h"
+#include "listas_dobles.h"
 
 using namespace std;
 
@@ -36,6 +37,7 @@ int main()
 {
     srand (time(NULL));
     ArbolABB concesionarios = generarArbolConcesionarios();
+    ListaD almacen;
     int op;
 
     do{
@@ -59,12 +61,22 @@ int main()
 
             case 2:
                 system("cls");
-
+                int NV;
+                cout << "Numero de automoviles a generar: ";
+                cin >> NV;
+                cout << "----------------------------------------" << endl;
+                cout << "Se han generado " << NV << " automoviles" << endl;
+                cout << "----------------------------------------" << endl;
+                while(NV>0){
+                    almacen.insertarNodoListaD(generarAutomovil(), 'f');
+                    NV--;
+                }
                 system("pause");
                 break;
 
             case 3:
                 system("cls");
+                almacen.mostrarLista(ASCENDENTE);
                 system("pause");
                 break;
 

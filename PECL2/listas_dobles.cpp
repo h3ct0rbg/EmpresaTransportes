@@ -39,6 +39,27 @@ void ListaD::insertarNodoListaD(Automovil v, char c)
         cabeza->anterior=aux;
         cabeza=aux;
     }
+    longitud++;
+}
+
+void ListaD::mostrarLista(int orden)
+{
+    pNodoListaD aux;
+
+    if (orden == ASCENDENTE) {
+        aux = cabeza;
+        while(aux) {
+            escribeAutomovil(aux->valor);
+            aux = aux->siguiente;
+        }
+    }
+    else {
+        aux = fin;
+        while(aux) {
+            escribeAutomovil(aux->valor);
+            aux = aux->anterior;
+        }
+    }
 }
 
 bool ListaD::listaVacia()
@@ -49,4 +70,9 @@ bool ListaD::listaVacia()
 void ListaD::esPrimero()
 {
     actual=cabeza;
+}
+
+void ListaD::esUltimo()
+{
+    actual=fin;
 }

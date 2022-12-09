@@ -77,12 +77,12 @@ void ListaD::esUltimo()
     actual=fin;
 }
 
-void ListaD::borrarNodo(Automovil v,char c)
+void ListaD::borrarNodo(pNodoListaD v)
 {
-    char tipoBorrado;
-    tipoBorrado=c;
+//    char tipoBorrado;
+//    tipoBorrado = c;
 
-    if(tipoBorrado=='f') {//Eliminaci�n por el final
+    if(v == fin) {//Eliminaci�n por el final
         pNodoListaD aux=NULL;
         if((cabeza==fin)) { //S�lo hay elemento
             aux=fin;
@@ -98,7 +98,7 @@ void ListaD::borrarNodo(Automovil v,char c)
             delete aux;
         }
     }
-    else if(tipoBorrado=='p') {//Eliminaci�n por el Principio
+    else if(v == cabeza) {//Eliminaci�n por el Principio
         pNodoListaD aux=NULL;
         if((cabeza==fin)) {//S�lo hay elemento
             aux=cabeza;
@@ -123,7 +123,7 @@ void ListaD::borrarPorModelo(string modelo){
     aux = cabeza;
     while(aux) {
         if (aux->valor.modelo == modelo){
-            delete aux;
+            borrarNodo(aux);
         }
         aux = aux->siguiente;
     }

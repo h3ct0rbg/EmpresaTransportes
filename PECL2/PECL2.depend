@@ -250,7 +250,7 @@
 	"concesionario.h"
 	<iostream>
 
-1670584390 e:\git\pecl2_empresatransportes\pecl2\listas_dobles.h
+1670588491 e:\git\pecl2_empresatransportes\pecl2\listas_dobles.h
 	"automovil.h"
 	<iostream>
 
@@ -276,10 +276,10 @@
 	"arbolABB.h"
 	"concesionario.h"
 
-1670584686 source:e:\git\pecl2_empresatransportes\pecl2\listas_dobles.cpp
+1670588484 source:e:\git\pecl2_empresatransportes\pecl2\listas_dobles.cpp
 	"listas_dobles.h"
 
-1670582227 source:e:\git\pecl2_empresatransportes\pecl2\main.cpp
+1670584795 source:e:\git\pecl2_empresatransportes\pecl2\main.cpp
 	<iostream>
 	"time.h"
 	"arbolABB.h"

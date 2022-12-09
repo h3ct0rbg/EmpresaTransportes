@@ -52,3 +52,27 @@ void ArbolABB::InOrden(void (*func)(Concesionario&) , NodoArbol *NodoArbol, bool
    func(NodoArbol->dato);
    if(NodoArbol->derecho) InOrden(func, NodoArbol->derecho, false);
 }
+
+bool ArbolABB::busqueda(int concesionario){
+    actual = raiz;
+    while(!Vacio(actual))
+    {
+        if(concesionario == actual->dato.numero_concesionario) {
+            cout << "Encontrado ";
+            return true;
+        }
+        else{
+            if(concesionario > actual->dato.numero_concesionario){
+                actual = actual->derecho;
+            }
+
+        }
+        if(concesionario > actual->dato.numero_concesionario){
+            actual = actual->derecho;
+        }
+        else if(concesionario < actual->dato.numero_concesionario){
+            actual = actual->izquierdo;
+        }
+    }
+    return false;
+}

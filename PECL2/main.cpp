@@ -86,20 +86,24 @@ int main()
                 system("pause");
                 break;
 
-            case 5:
+//            case 5:
+//                system("cls");
+//                string modelo;
+//                cout << "Introduzca el modelo de vehiculo que quiera borrar del almacen: ";
+//                cin >> modelo;
+//                almacen.borrarPorModelo(modelo);
+//                system("pause");
+//                break;
+
+            case 6:
                 system("cls");
-                string modelo;
-                cout << "Introduzca el modelo de vehiculo que quiera borrar del almacen: ";
-                cin >> modelo;
-                almacen.borrarPorModelo(modelo);
+                int n_concesionario;
+                cout << "Introduzca un numero de concesionario donde llevar todos los vehiculos desde el almacen: ";
+                cin >> n_concesionario;
+                concesionarios.busqueda(n_concesionario);
                 system("pause");
                 break;
 
-//            case 6:
-//                system("cls");
-//                system("pause");
-//                break;
-//
 //            case 7:
 //                system("cls");
 //                system("pause");

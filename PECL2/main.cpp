@@ -88,33 +88,37 @@ int main()
 
             case 5:
                 system("cls");
+                string modelo;
+                cout << "Introduzca el modelo de vehiculo que quiera borrar del almacen: ";
+                cin >> modelo;
+                almacen.borrarPorModelo(modelo);
                 system("pause");
                 break;
 
-            case 6:
-                system("cls");
-                system("pause");
-                break;
-
-            case 7:
-                system("cls");
-                system("pause");
-                break;
-
-            case 8:
-                system("cls");
-                system("pause");
-                break;
-
-            case 9:
-                system("cls");
-                system("pause");
-                break;
-
-            case 10:
-                system("cls");
-                system("pause");
-                break;
+//            case 6:
+//                system("cls");
+//                system("pause");
+//                break;
+//
+//            case 7:
+//                system("cls");
+//                system("pause");
+//                break;
+//
+//            case 8:
+//                system("cls");
+//                system("pause");
+//                break;
+//
+//            case 9:
+//                system("cls");
+//                system("pause");
+//                break;
+//
+//            case 10:
+//                system("cls");
+//                system("pause");
+//                break;
         }
         system("cls");
 

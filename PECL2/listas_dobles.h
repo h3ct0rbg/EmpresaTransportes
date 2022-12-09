@@ -43,6 +43,8 @@ class ListaD
         bool listaVacia();
         void esPrimero();
         void esUltimo();
+        void borrarPorModelo(string modelo);
+        void borrarNodo(Automovil v,char c);
 
         //Getter
         int getLongitud(){

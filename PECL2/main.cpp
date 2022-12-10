@@ -95,31 +95,42 @@ int main()
 //                system("pause");
 //                break;
 
-            case 6:
-                system("cls");
-                int n_concesionario;
-                cout << "Introduzca un numero de concesionario donde llevar todos los vehiculos desde el almacen: ";
-                cin >> n_concesionario;
-                //Lista de vehiculos del concesionario
-                ListaD concesionarioLista = concesionarios.busqueda(n_concesionario).lista_vehiculos;
-
-                //Insertamos los vehiculos del almacen al concesionario indicado por n_concesionario
-                almacen.insertarListaVehiculos_Concesionario(concesionarioLista);
-
-                concesionarioLista.mostrarLista(ASCENDENTE);
-                system("pause");
-                break;
+//            case 6:
+//                system("cls");
+//                int n_concesionario;
+//                cout << "Introduzca un numero de concesionario donde llevar todos los vehiculos desde el almacen: ";
+//                cin >> n_concesionario;
+//                //Lista de vehiculos del concesionario
+//                ListaD concesionarioLista = concesionarios.busqueda(n_concesionario).lista_vehiculos;
+//
+//                //Insertamos los vehiculos del almacen al concesionario indicado por n_concesionario
+//                almacen.insertarListaVehiculos_Concesionario(concesionarioLista);
+//
+//                concesionarioLista.mostrarLista(ASCENDENTE);
+//                system("pause");
+//                break;
 
 //            case 7:
 //                system("cls");
+//                  string zona;
+//                  cout << "Introduzca una zona: ";
+//                  cin >> zona;
 //                system("pause");
 //                break;
-//
+
 //            case 8:
 //                system("cls");
+//                int n_concesionario;
+//                cout << "Introduzca un numero de concesionario donde llevar todos los vehiculos desde el almacen: ";
+//                cin >> n_concesionario;
+//
+//                //Lista de vehiculos del concesionario
+//                Concesionario concesionario = concesionarios.busqueda(n_concesionario);
+//
+//                escribeConcesionario(concesionario);
 //                system("pause");
 //                break;
-//
+
 //            case 9:
 //                system("cls");
 //                system("pause");

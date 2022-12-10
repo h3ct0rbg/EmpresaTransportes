@@ -100,7 +100,13 @@ int main()
                 int n_concesionario;
                 cout << "Introduzca un numero de concesionario donde llevar todos los vehiculos desde el almacen: ";
                 cin >> n_concesionario;
-                concesionarios.busqueda(n_concesionario);
+                //Lista de vehiculos del concesionario
+                ListaD concesionarioLista = concesionarios.busqueda(n_concesionario).lista_vehiculos;
+
+                //Insertamos los vehiculos del almacen al concesionario indicado por n_concesionario
+                almacen.insertarListaVehiculos_Concesionario(concesionarioLista);
+
+                concesionarioLista.mostrarLista(ASCENDENTE);
                 system("pause");
                 break;
 

@@ -16,6 +16,7 @@ class NodoListaD
 
         friend class ListaD;
 
+
     public:
         NodoListaD(Automovil v)
         {
@@ -45,7 +46,8 @@ class ListaD
         void esUltimo();
         void borrarPorModelo(string modelo);
         void borrarNodo(pNodoListaD v);
-
+        void insertarListaVehiculos_Concesionario(ListaD listaVehiculos);
+        void escribeLista();
         //Getter
         int getLongitud(){
             return longitud;

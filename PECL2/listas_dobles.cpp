@@ -79,8 +79,6 @@ void ListaD::esUltimo()
 
 void ListaD::borrarNodo(pNodoListaD v)
 {
-//    char tipoBorrado;
-//    tipoBorrado = c;
 
     if(v == fin) {//Eliminaci�n por el final
         pNodoListaD aux=NULL;
@@ -128,4 +126,23 @@ void ListaD::borrarPorModelo(string modelo){
         aux = aux->siguiente;
     }
 
+}
+
+void ListaD::insertarListaVehiculos_Concesionario(ListaD listaVehiculos){
+    pNodoListaD aux;
+    aux = cabeza;
+    while(aux) {
+        //cout << aux->valor.modelo << endl;
+        listaVehiculos.insertarNodoListaD(aux->valor, 'f');
+        aux = aux->siguiente;
+    }
+}
+
+void ListaD::escribeLista(){
+    pNodoListaD aux;
+    aux = cabeza;
+    while(aux) {
+        cout << aux->valor.modelo;
+        aux = aux->siguiente;
+    }
 }

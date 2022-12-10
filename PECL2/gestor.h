@@ -7,6 +7,7 @@
 #include "concesionario.h"
 
 ArbolABB generarArbolConcesionarios(void);
+void insertarListaVehiculos_Concesionario(ListaD almacen, ListaD listaVehiculos);
 
 #endif // GESTOR_H
 

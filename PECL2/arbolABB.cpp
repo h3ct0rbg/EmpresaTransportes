@@ -1,4 +1,6 @@
 #include "ArbolABB.h"
+#include <string.h>
+#include <iostream>
 
 string zona[4] = {"A", "B", "C", "D"};
 int num_concesionario[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
@@ -75,4 +77,111 @@ Concesionario ArbolABB::busqueda(int concesionario){
         }
     }
     throw 'No se ha encontrado el concesionario';
+}
+
+void ArbolABB::mostrarConcesionariosZona(string zona){
+    actual = raiz;
+    while(!Vacio(actual))
+    {
+        if(zona.compare(actual->dato.zona) == 0) {
+            //Concesionario encontrado
+            cout << actual->dato.numero_concesionario << actual->dato.zona  << endl;
+        }
+        else{
+            if(zona.compare(actual->dato.zona) > 0){
+                actual = actual->derecho;
+            }
+
+        }
+        if(zona.compare(actual->dato.zona) > 0){
+            actual = actual->derecho;
+        }
+        else if(zona.compare(actual->dato.zona) < 0){
+            actual = actual->izquierdo;
+        }
+    }
+    throw 'No se ha encontrado el concesionario';
+}
+
+void ArbolABB::Borrar(Concesionario dat)
+{
+   NodoArbol *padre = NULL;
+   NodoArbol *nodo;
+   Concesionario aux;
+   actual = raiz;
+
+   // Mientras sea posible que el valor esté en el árbol
+   while(!Vacio(actual)) {
+      if(dat.numero_concesionario == actual->dato.numero_concesionario) { // Si el valor está en el nodo actual
+         if(EsHoja(actual)) { // Y si además es un nodo hoja: lo borramos
+            cout << "\n\t\tBorrado un nodo hoja,";
+            if(padre) {// Si tiene padre (no es el nodo raiz)
+               // Anulamos el puntero que le hace referencia
+               if(padre->derecho == actual) padre->derecho = NULL;
+               else if(padre->izquierdo == actual) padre->izquierdo = NULL;
+            }
+            else{
+                cout << " que ademas era raiz.";
+                raiz=NULL;
+            }
+            delete actual; // Borrar el nodo
+            actual = NULL;
+            return;
+         }
+         else { // Si el valor está en el nodo actual, pero no es hoja
+            if (actual->derecho==NULL){ //sólo tiene hijo izquierdo.
+                cout << "\n\t\tBorrado un nodo lista izquierda,";
+                if (padre){ //Si tiene padre, me lo salto
+                        if(padre->izquierdo==actual)
+                            padre->izquierdo=actual->izquierdo;
+                        else
+                            padre->derecho=actual->izquierdo;
+                }
+                else{ //Si no tiene padre, su hijo izquierdo es el nuevo raiz;
+                    cout << " que ademas era raiz.";
+                    raiz=actual->izquierdo;
+                }
+                delete actual;
+                actual=NULL;
+                return;
+            }
+            else  if (actual->izquierdo==NULL){ //sólo tiene hijo derecho.
+                cout << "\n\t\tBorrado un nodo lista derecha,";
+                if (padre){ //Si tiene padre, me lo salto
+                        if(padre->izquierdo==actual)
+                            padre->izquierdo=actual->derecho;
+                        else
+                            padre->derecho=actual->derecho;
+                }
+                else{ //Si no tiene padre, su hijo izquierdo es el nuevo raiz;
+                    cout << " que ademas era raiz.";
+                    raiz=actual->derecho;
+                                    }
+                delete actual;
+                actual=NULL;
+                return;
+            }
+            else{ // Tiene dos hijos. Busco sustituto. Nodo más a la derecha de la rama izquierda
+               padre=actual;
+               nodo = actual->izquierdo;
+               while(nodo->derecho) {
+                  padre = nodo;
+                  nodo = nodo->derecho;
+               }
+            // Intercambiar valores de nodo a borrar y nodo encontrado y continuar, cerrando el bucle. El nodo encontrado no tiene por qué ser un nodo hoja.
+            // cerrando el bucle nos aseguramos de que sólo se eliminan nodos hoja.
+                aux = actual->dato;
+                actual->dato = nodo->dato;
+                nodo->dato = aux;
+                actual = nodo;
+                cout << "\n\t\tHay intercambio.";
+            }
+         }
+      }
+      else { // Todavía no hemos encontrado el valor, seguir buscándolo
+         padre = actual;
+         if(dat.numero_concesionario > actual->dato.numero_concesionario) actual = actual->derecho;
+         else if(dat.numero_concesionario < actual->dato.numero_concesionario) actual = actual->izquierdo;
+      }
+   }
 }

@@ -128,18 +128,28 @@ int main()
 //                Concesionario concesionario = concesionarios.busqueda(n_concesionario);
 //
 //                escribeConcesionario(concesionario);
+//                concesionario.lista_vehiculos.mostrarLista(ASCENDENTE);
 //                system("pause");
 //                break;
 
 //            case 9:
 //                system("cls");
+//                string zona;
+//                cout << "Introduzca una zona: ";
+//                cin >> zona;
+//                concesionarios.mostrarConcesionariosZona(zona);
 //                system("pause");
 //                break;
-//
-//            case 10:
-//                system("cls");
-//                system("pause");
-//                break;
+
+            case 10:
+                system("cls");
+                int n_concesionario;
+                cout << "Introduzca un numero de concesionario para borrarlo: ";
+                cin >> n_concesionario;
+                Concesionario concesionario = concesionarios.busqueda(n_concesionario);
+                concesionarios.Borrar(concesionario);
+                system("pause");
+                break;
         }
         system("cls");
 

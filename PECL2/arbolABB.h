@@ -32,10 +32,12 @@ class ArbolABB {
 
        void Podar(NodoArbol* &NodoArbol);
        void Insertar(Concesionario dat); //Insertar en árbol ordenado
+       void Borrar(Concesionario dat);
        bool Vacio(NodoArbol *r) { return r==NULL; } //Comprobar si el árbol está vacío
        bool EsHoja(NodoArbol *r) { return !r->derecho && !r->izquierdo; } //Comprobar si es un NodoArbol hoja
        void InOrden(void (*func)(Concesionario&) , NodoArbol *NodoArbol=NULL, bool r=true); //Aplicar una función a cada elemento del árbol:
        Concesionario busqueda(int concesionario);
+       void mostrarConcesionariosZona(string zona);
 };
 
 #endif // ARBOLABB_H

@@ -238,10 +238,12 @@
 	"concesionario.h"
 	"listas_dobles.h"
 
-1670630864 source:e:\git\pecl2_empresatransportes\pecl2\arbolabb.cpp
+1670758508 source:e:\git\pecl2_empresatransportes\pecl2\arbolabb.cpp
 	"ArbolABB.h"
+	<string.h>
+	<iostream>
 
-1670628201 e:\git\pecl2_empresatransportes\pecl2\arbolabb.h
+1670758338 e:\git\pecl2_empresatransportes\pecl2\arbolabb.h
 	"concesionario.h"
 	<iostream>
 
@@ -260,7 +262,7 @@
 1670582227 source:e:\git\pecl2_empresatransportes\pecl2\automovil.cpp
 	"automovil.h"
 
-1670582227 source:e:\git\pecl2_empresatransportes\pecl2\concesionario.cpp
+1670671915 source:e:\git\pecl2_empresatransportes\pecl2\concesionario.cpp
 	"concesionario.h"
 	"arbolABB.h"
 
@@ -279,7 +281,7 @@
 1670631554 source:e:\git\pecl2_empresatransportes\pecl2\listas_dobles.cpp
 	"listas_dobles.h"
 
-1670631519 source:e:\git\pecl2_empresatransportes\pecl2\main.cpp
+1670675879 source:e:\git\pecl2_empresatransportes\pecl2\main.cpp
 	<iostream>
 	"time.h"
 	"arbolABB.h"

@@ -112,6 +112,14 @@ void ListaD::borrarNodo(pNodoListaD v)
             delete aux;
         }
     }
+    else{
+        pNodoListaD aux = NULL;
+        aux = v;
+        v->anterior->siguiente = v->siguiente;
+        v->siguiente->anterior = v->anterior;
+        delete aux;
+
+    }
 }
 
 void ListaD::borrarPorModelo(string modelo){

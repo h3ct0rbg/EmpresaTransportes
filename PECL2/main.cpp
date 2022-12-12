@@ -86,14 +86,14 @@ int main()
                 system("pause");
                 break;
 
-//            case 5:
-//                system("cls");
-//                string modelo;
-//                cout << "Introduzca el modelo de vehiculo que quiera borrar del almacen: ";
-//                cin >> modelo;
-//                almacen.borrarPorModelo(modelo);
-//                system("pause");
-//                break;
+            case 5:
+                system("cls");
+                string modelo;
+                cout << "Introduzca el modelo de vehiculo que quiera borrar del almacen: ";
+                cin >> modelo;
+                almacen.borrarPorModelo(modelo);
+                system("pause");
+                break;
 
 //            case 6:
 //                system("cls");
@@ -141,15 +141,15 @@ int main()
 //                system("pause");
 //                break;
 
-            case 10:
-                system("cls");
-                int n_concesionario;
-                cout << "Introduzca un numero de concesionario para borrarlo: ";
-                cin >> n_concesionario;
-                Concesionario concesionario = concesionarios.busqueda(n_concesionario);
-                concesionarios.Borrar(concesionario);
-                system("pause");
-                break;
+//            case 10:
+//                system("cls");
+//                int n_concesionario;
+//                cout << "Introduzca un numero de concesionario para borrarlo: ";
+//                cin >> n_concesionario;
+//                Concesionario concesionario = concesionarios.busqueda(n_concesionario);
+//                concesionarios.Borrar(concesionario);
+//                system("pause");
+//                break;
         }
         system("cls");
 

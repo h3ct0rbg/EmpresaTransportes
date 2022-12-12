@@ -30,24 +30,24 @@ typedef NodoListaD *pNodoListaD;
 class ListaD
 {
     private:
-        pNodoListaD cabeza, fin, actual;
+        pNodoListaD cabeza, fin;
         int longitud;
 
     public:
         ListaD(){
-            cabeza=actual=fin=NULL;
+            cabeza=fin=NULL;
             longitud=0;
         }
         ~ListaD();
         void insertarNodoListaD(Automovil v, char c);
         void mostrarLista(int orden);
-        bool listaVacia();
-        void esPrimero();
-        void esUltimo();
+        Automovil borrarNodo(pNodoListaD aux);
         void borrarPorModelo(string modelo);
-        void borrarNodo(pNodoListaD v);
         void insertarListaVehiculos_Concesionario(ListaD listaVehiculos);
         void escribeLista();
+        bool listaVacia(){return cabeza == NULL;};
+        bool esUnico(){return cabeza == fin;};
+
         //Getter
         int getLongitud(){
             return longitud;

@@ -2,7 +2,7 @@
 
 string letras[4] = {"A", "B", "C", "D"};
 string digitos[10] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
-string modelos[5] = {"Leon", "Ibiza", "Opel", "Ateca", "Mii Electric"};
+string modelos[5] = {"Leon", "Ibiza", "Opel", "Ateca", "Alhambra"};
 string colores[6] = {"Rojo", "Negro", "Blanco", "Azul", "Verde", "Gris"};
 
 //Muestra por pantalla la información de un automovil

@@ -36,8 +36,13 @@ void menu()
 int main()
 {
     srand (time(NULL));
+
     ArbolABB concesionarios = generarArbolConcesionarios();
     ListaD almacen;
+
+    int numero;
+    int numero1;
+    string modelo;
     int op;
 
     do{
@@ -61,15 +66,15 @@ int main()
 
             case 2:
                 system("cls");
-                int NV;
+                int numero;
                 cout << "Numero de automoviles a generar: ";
-                cin >> NV;
+                cin >> numero;
                 cout << "----------------------------------------" << endl;
-                cout << "Se han generado " << NV << " automoviles" << endl;
+                cout << "Se han generado " << numero << " automoviles" << endl;
                 cout << "----------------------------------------" << endl;
-                while(NV>0){
+                while(numero>0){
                     almacen.insertarNodoListaD(generarAutomovil(), 'f');
-                    NV--;
+                    numero--;
                 }
                 system("pause");
                 break;
@@ -88,8 +93,7 @@ int main()
 
             case 5:
                 system("cls");
-                string modelo;
-                cout << "Introduzca el modelo de vehiculo que quiera borrar del almacen: ";
+                cout << "Modelo de automovil que desea borrar del almacen: ";
                 cin >> modelo;
                 almacen.borrarPorModelo(modelo);
                 system("pause");

@@ -5,7 +5,6 @@ using namespace std;
 ListaD::~ListaD()
 {
     pNodoListaD aux;
-    esPrimero();
     while(cabeza)
     {
         aux = cabeza;
@@ -13,7 +12,6 @@ ListaD::~ListaD()
         delete aux;
     }
         cabeza=NULL;
-        actual=NULL;
         fin=NULL;
         longitud=0;
 }
@@ -62,64 +60,30 @@ void ListaD::mostrarLista(int orden)
     }
 }
 
-bool ListaD::listaVacia()
+Automovil ListaD::borrarNodo(pNodoListaD aux)
 {
-    return cabeza == NULL;
-}
-
-void ListaD::esPrimero()
-{
-    actual=cabeza;
-}
-
-void ListaD::esUltimo()
-{
-    actual=fin;
-}
-
-void ListaD::borrarNodo(pNodoListaD v)
-{
-
-    if(v == fin) {//Eliminaci�n por el final
-        pNodoListaD aux=NULL;
-        if((cabeza==fin)) { //S�lo hay elemento
-            aux=fin;
-            cabeza = fin = NULL;
-            aux=NULL;
-            delete aux;
-        }
-        else {
-            aux=fin;
-            fin=fin->anterior;
-            aux->anterior=NULL;  //a�ado yo seg�n transparencias
-            fin->siguiente=NULL;
-            delete aux;
-        }
+    Automovil automovil = aux->valor;
+    if(esUnico()){
+        cabeza = NULL;
+        fin = NULL;
+        delete aux;
     }
-    else if(v == cabeza) {//Eliminaci�n por el Principio
-        pNodoListaD aux=NULL;
-        if((cabeza==fin)) {//S�lo hay elemento
-            aux=cabeza;
-            cabeza = fin = NULL;
-            aux=NULL;
-            delete aux;
-        }
-        else {
-            aux=cabeza;
-            cabeza=cabeza->siguiente;
-            aux->siguiente=NULL;  //a�ado yo seg�n transparencias
-            cabeza->anterior=NULL;
-            delete aux;
-        }
+    else if(aux==cabeza){
+        aux->siguiente->anterior = NULL;
+        cabeza = aux->siguiente;
+        delete aux;
+    }
+    else if(aux==fin){
+        aux->anterior->siguiente = NULL;
+        fin = aux->anterior;
+        delete aux;
     }
     else{
-        pNodoListaD aux = NULL;
-        aux = v;
-        v->anterior->siguiente = v->siguiente;
-        v->siguiente->anterior = v->anterior;
+        aux->siguiente->anterior = aux->anterior;
+        aux->anterior->siguiente = aux->siguiente;
         delete aux;
-
     }
+    return automovil;
 }
 
 void ListaD::borrarPorModelo(string modelo){
@@ -133,7 +97,6 @@ void ListaD::borrarPorModelo(string modelo){
         }
         aux = aux->siguiente;
     }
-
 }
 
 void ListaD::insertarListaVehiculos_Concesionario(ListaD listaVehiculos){

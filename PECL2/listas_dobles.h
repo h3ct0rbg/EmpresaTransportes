@@ -49,6 +49,10 @@ class ListaD
         bool esUnico(){return cabeza == fin;};
 
         //Getter
+        pNodoListaD getCabeza(){
+            return cabeza;
+        }
+
         int getLongitud(){
             return longitud;
         }

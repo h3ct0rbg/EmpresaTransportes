@@ -55,7 +55,8 @@ void ArbolABB::InOrden(void (*func)(Concesionario&) , NodoArbol *NodoArbol, bool
    if(NodoArbol->derecho) InOrden(func, NodoArbol->derecho, false);
 }
 
-Concesionario ArbolABB::busqueda(int concesionario){
+Concesionario ArbolABB::Buscar(int concesionario)
+{
     actual = raiz;
     while(!Vacio(actual))
     {
@@ -79,28 +80,14 @@ Concesionario ArbolABB::busqueda(int concesionario){
     throw 'No se ha encontrado el concesionario';
 }
 
-void ArbolABB::mostrarConcesionariosZona(string zona){
-    actual = raiz;
-    while(!Vacio(actual))
-    {
-        if(zona.compare(actual->dato.zona) == 0) {
-            //Concesionario encontrado
-            cout << actual->dato.numero_concesionario << actual->dato.zona  << endl;
-        }
-        else{
-            if(zona.compare(actual->dato.zona) > 0){
-                actual = actual->derecho;
-            }
-
-        }
-        if(zona.compare(actual->dato.zona) > 0){
-            actual = actual->derecho;
-        }
-        else if(zona.compare(actual->dato.zona) < 0){
-            actual = actual->izquierdo;
-        }
+void ArbolABB::mostrarConcesionariosZona(string zona, NodoArbol *NodoArbol, bool r){
+    if (Vacio(raiz)) return; //si está vacío nada
+    if(r) NodoArbol = raiz;
+    if(NodoArbol->izquierdo) mostrarConcesionariosZona(zona, NodoArbol->izquierdo, false);
+    if(NodoArbol->dato.zona == zona){
+        cout << NodoArbol->dato.numero_concesionario << NodoArbol->dato.zona << endl;
     }
-    throw 'No se ha encontrado el concesionario';
+    if(NodoArbol->derecho) mostrarConcesionariosZona(zona, NodoArbol->derecho, false);
 }
 
 void ArbolABB::Borrar(Concesionario dat)
@@ -114,14 +101,12 @@ void ArbolABB::Borrar(Concesionario dat)
    while(!Vacio(actual)) {
       if(dat.numero_concesionario == actual->dato.numero_concesionario) { // Si el valor está en el nodo actual
          if(EsHoja(actual)) { // Y si además es un nodo hoja: lo borramos
-            cout << "\n\t\tBorrado un nodo hoja,";
             if(padre) {// Si tiene padre (no es el nodo raiz)
                // Anulamos el puntero que le hace referencia
                if(padre->derecho == actual) padre->derecho = NULL;
                else if(padre->izquierdo == actual) padre->izquierdo = NULL;
             }
             else{
-                cout << " que ademas era raiz.";
                 raiz=NULL;
             }
             delete actual; // Borrar el nodo
@@ -130,7 +115,6 @@ void ArbolABB::Borrar(Concesionario dat)
          }
          else { // Si el valor está en el nodo actual, pero no es hoja
             if (actual->derecho==NULL){ //sólo tiene hijo izquierdo.
-                cout << "\n\t\tBorrado un nodo lista izquierda,";
                 if (padre){ //Si tiene padre, me lo salto
                         if(padre->izquierdo==actual)
                             padre->izquierdo=actual->izquierdo;
@@ -138,7 +122,6 @@ void ArbolABB::Borrar(Concesionario dat)
                             padre->derecho=actual->izquierdo;
                 }
                 else{ //Si no tiene padre, su hijo izquierdo es el nuevo raiz;
-                    cout << " que ademas era raiz.";
                     raiz=actual->izquierdo;
                 }
                 delete actual;
@@ -146,7 +129,6 @@ void ArbolABB::Borrar(Concesionario dat)
                 return;
             }
             else  if (actual->izquierdo==NULL){ //sólo tiene hijo derecho.
-                cout << "\n\t\tBorrado un nodo lista derecha,";
                 if (padre){ //Si tiene padre, me lo salto
                         if(padre->izquierdo==actual)
                             padre->izquierdo=actual->derecho;
@@ -154,7 +136,6 @@ void ArbolABB::Borrar(Concesionario dat)
                             padre->derecho=actual->derecho;
                 }
                 else{ //Si no tiene padre, su hijo izquierdo es el nuevo raiz;
-                    cout << " que ademas era raiz.";
                     raiz=actual->derecho;
                                     }
                 delete actual;
@@ -174,7 +155,6 @@ void ArbolABB::Borrar(Concesionario dat)
                 actual->dato = nodo->dato;
                 nodo->dato = aux;
                 actual = nodo;
-                cout << "\n\t\tHay intercambio.";
             }
          }
       }
@@ -185,3 +165,26 @@ void ArbolABB::Borrar(Concesionario dat)
       }
    }
 }
+
+//Genera aleatoriamente el arbol binario de concesionarios
+ArbolABB generarArbolConcesionarios(){
+    string zona[4] = {"A", "B", "C", "D"};
+    int num_concesionario[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+    ArbolABB concesionarios;
+    int aux = 0;
+    int randomIndex = 0;
+
+    for(int i=0; i<16; i++){
+        randomIndex = rand()%16;
+        aux = num_concesionario[i];
+        num_concesionario[i] = num_concesionario[randomIndex];
+        num_concesionario[randomIndex] = aux;
+    }
+    for(int i=0; i<16; i++){
+        Concesionario c = generarConcesionario(num_concesionario[i], zona[i%4]);
+        concesionarios.Insertar(c);
+    }
+
+    return concesionarios;
+}
+

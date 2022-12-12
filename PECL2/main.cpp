@@ -2,7 +2,6 @@
 #include "time.h"
 #include "arbolABB.h"
 #include "automovil.h"
-#include "gestor.h"
 #include "concesionario.h"
 #include "listas_dobles.h"
 
@@ -42,7 +41,8 @@ int main()
 
     int numero;
     int numero1;
-    string modelo;
+    string cadena;
+    Concesionario c;
     int op;
 
     do{
@@ -94,25 +94,20 @@ int main()
             case 5:
                 system("cls");
                 cout << "Modelo de automovil que desea borrar del almacen: ";
-                cin >> modelo;
-                almacen.borrarPorModelo(modelo);
+                cin >> cadena;
+                almacen.borrarPorModelo(cadena);
                 system("pause");
                 break;
 
-//            case 6:
-//                system("cls");
-//                int n_concesionario;
-//                cout << "Introduzca un numero de concesionario donde llevar todos los vehiculos desde el almacen: ";
-//                cin >> n_concesionario;
-//                //Lista de vehiculos del concesionario
-//                ListaD concesionarioLista = concesionarios.busqueda(n_concesionario).lista_vehiculos;
-//
-//                //Insertamos los vehiculos del almacen al concesionario indicado por n_concesionario
-//                almacen.insertarListaVehiculos_Concesionario(concesionarioLista);
-//
-//                concesionarioLista.mostrarLista(ASCENDENTE);
-//                system("pause");
-//                break;
+            case 6:
+                system("cls");
+                cout << "Numero de concesionario donde enviar los automoviles del almacen: ";
+                cin >> numero;
+                while(almacen.getLongitud()>0){
+                    concesionarios.Buscar(numero).lista_vehiculos.insertarEnOrden(almacen.borrarNodo(almacen.getCabeza()));
+                }
+                system("pause");
+                break;
 
 //            case 7:
 //                system("cls");
@@ -122,38 +117,32 @@ int main()
 //                system("pause");
 //                break;
 
-//            case 8:
-//                system("cls");
-//                int n_concesionario;
-//                cout << "Introduzca un numero de concesionario donde llevar todos los vehiculos desde el almacen: ";
-//                cin >> n_concesionario;
-//
-//                //Lista de vehiculos del concesionario
-//                Concesionario concesionario = concesionarios.busqueda(n_concesionario);
-//
-//                escribeConcesionario(concesionario);
-//                concesionario.lista_vehiculos.mostrarLista(ASCENDENTE);
-//                system("pause");
-//                break;
+            case 8:
+                system("cls");
+                cout << "Introduzca el numero de concesionario que desea ver: ";
+                cin >> numero;
+                c = concesionarios.Buscar(numero);
+                //Lista de vehiculos del concesionario
+                escribeConcesionario(c);
+                system("pause");
+                break;
 
-//            case 9:
-//                system("cls");
-//                string zona;
-//                cout << "Introduzca una zona: ";
-//                cin >> zona;
-//                concesionarios.mostrarConcesionariosZona(zona);
-//                system("pause");
-//                break;
+            case 9:
+                system("cls");
+                cout << "Introduzca una zona: ";
+                cin >> cadena;
+                concesionarios.mostrarConcesionariosZona(cadena);
+                system("pause");
+                break;
 
-//            case 10:
-//                system("cls");
-//                int n_concesionario;
-//                cout << "Introduzca un numero de concesionario para borrarlo: ";
-//                cin >> n_concesionario;
-//                Concesionario concesionario = concesionarios.busqueda(n_concesionario);
-//                concesionarios.Borrar(concesionario);
-//                system("pause");
-//                break;
+            case 10:
+                system("cls");
+                cout << "Introduzca un numero de concesionario para borrarlo: ";
+                cin >> numero;
+                c = concesionarios.Buscar(numero);
+                concesionarios.Borrar(c);
+                system("pause");
+                break;
         }
         system("cls");
 

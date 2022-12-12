@@ -39,6 +39,39 @@ void ListaD::insertarNodoListaD(Automovil v, char c)
     }
     longitud++;
 }
+//void ListaD::insertarNodoListaD(Automovil v)
+//{
+//    pNodoListaD aux = cabeza;
+//
+//    while(v.modelo != aux.valor.modelo || aux!=fin){
+//        aux = aux->siguiente;
+//    }
+//
+//        if(cabeza==NULL){ //Si la lista esta vacia
+//            aux = new NodoListaD(v);
+//            cabeza=fin=aux;
+//        }
+//        else if(aux == cabeza){ //Si es el primero de la lista
+//            aux = new NodoListaD(v);
+//            aux->siguiente=cabeza;
+//            cabeza->anterior=aux;
+//            cabeza=aux;
+//        }
+//        else if(aux == fin){
+//            aux = new NodoListaD(v);
+//            aux->anterior=fin;
+//            fin->siguiente=aux;
+//            fin=aux;
+//        }
+//        else(){
+//            aux = new NodoListaD(v);
+//        }
+//    }
+//    else if(){
+//
+//    }
+//    longitud++;
+//}
 
 void ListaD::mostrarLista(int orden)
 {
@@ -83,6 +116,7 @@ Automovil ListaD::borrarNodo(pNodoListaD aux)
         aux->anterior->siguiente = aux->siguiente;
         delete aux;
     }
+    longitud--;
     return automovil;
 }
 

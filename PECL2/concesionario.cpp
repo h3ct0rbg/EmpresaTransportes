@@ -1,10 +1,9 @@
 #include "concesionario.h"
-#include "arbolABB.h"
 
 Concesionario dameConcesionarioVacio(){
     Concesionario concesionario;
 
-    concesionario.lista_vehiculos = ListaD();
+    concesionario.lista_vehiculos = Lista();
     concesionario.numero_concesionario = 0;
     concesionario.zona = "";
 
@@ -16,7 +15,7 @@ Concesionario generarConcesionario(int num_concesionario, string zona){
 
     concesionario.numero_concesionario = num_concesionario;
     concesionario.zona = zona;
-    concesionario.lista_vehiculos = ListaD();
+    concesionario.lista_vehiculos = Lista();
 
     return concesionario;
 }

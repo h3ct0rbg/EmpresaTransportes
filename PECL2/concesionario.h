@@ -1,7 +1,7 @@
 #ifndef CONCESIONARIO_H
 #define CONCESIONARIO_H
 
-#include "listas_dobles.h"
+#include "lista.h"
 #include "concesionario.h"
 #include <iostream>
 
@@ -10,7 +10,7 @@ using namespace std;
 struct Concesionario {
     int numero_concesionario;
     string zona;
-    ListaD lista_vehiculos;
+    Lista lista_vehiculos;
 };
 
 Concesionario dameConcesionarioVacio();

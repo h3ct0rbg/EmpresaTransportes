@@ -27,11 +27,11 @@ void Lista::insertarEnOrden(Automovil v)
     if(listaVacia()){ //La lista está vacía
         cabeza = fin = aux;
     }
-    else if(actual == cabeza){
+    else if(actual == cabeza){ //Es el primero de la lista
         aux->siguiente = actual;
         cabeza = aux;
     }
-    else{
+    else{ //Es el ultimo o intermedio
         aux->siguiente = actual;
         aux1->siguiente = aux;
     }

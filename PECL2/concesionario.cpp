@@ -20,13 +20,19 @@ Concesionario generarConcesionario(int num_concesionario, string zona){
     return concesionario;
 }
 
-void escribeConcesionario(Concesionario &c){
-    cout << "Concesionario " << c.numero_concesionario << c.zona << ": " << c.lista_vehiculos.getLongitud() << " automoviles" << endl;
+void escribeConcesionario(Concesionario &c, string &s){
+    if(c.zona == s || s == ""){
+        cout << "Concesionario " << c.numero_concesionario << c.zona << " -> " << c.lista_vehiculos.getLongitud() << " automoviles" << endl;
+    }
 }
 
-void muestraConcesionario(Concesionario &c){
-    cout << "Concesionario " << c.numero_concesionario << c.zona << ": " << endl;
-    c.lista_vehiculos.mostrarLista();
+void muestraConcesionario(Concesionario &c, string &s){
+    if(c.zona == s || s == ""){
+        cout << "Concesionario " << c.numero_concesionario << c.zona << ": " << endl;
+        cout <<"----------------------------------------------------" << endl;
+        c.lista_vehiculos.mostrarLista();
+        cout <<"----------------------------------------------------\n" << endl;
+    }
 }
 
 

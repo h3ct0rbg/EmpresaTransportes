@@ -142,12 +142,3 @@ void ListaD::insertarListaVehiculos_Concesionario(ListaD listaVehiculos){
         aux = aux->siguiente;
     }
 }
-
-void ListaD::escribeLista(){
-    pNodoListaD aux;
-    aux = cabeza;
-    while(aux) {
-        cout << aux->valor.modelo;
-        aux = aux->siguiente;
-    }
-}

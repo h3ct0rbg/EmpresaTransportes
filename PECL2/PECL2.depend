@@ -188,21 +188,21 @@
 1670354663 source:c:\users\hbena\documents\github\pecl2_empresatransporte\pecl2\arbolabb.cpp
 	"ArbolABB.h"
 
-1670896623 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\arbolabb.cpp
+1670963448 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\arbolabb.cpp
 	"ArbolABB.h"
 	<string.h>
 	<iostream>
 
-1670896633 c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\arbolabb.h
+1670963440 c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\arbolabb.h
 	"concesionario.h"
 	<iostream>
 
-1670880266 c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\concesionario.h
+1670949505 c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\concesionario.h
 	"lista.h"
 	"concesionario.h"
 	<iostream>
 
-1670871263 c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\listas_dobles.h
+1670951253 c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\listas_dobles.h
 	"automovil.h"
 	<iostream>
 
@@ -212,7 +212,7 @@
 1670861003 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\automovil.cpp
 	"automovil.h"
 
-1670880961 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\concesionario.cpp
+1670949808 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\concesionario.cpp
 	"concesionario.h"
 
 1670860058 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\gestor.cpp
@@ -227,10 +227,10 @@
 	"arbolABB.h"
 	"concesionario.h"
 
-1670876220 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\listas_dobles.cpp
+1670951287 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\listas_dobles.cpp
 	"listas_dobles.h"
 
-1670896123 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\main.cpp
+1670963732 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\main.cpp
 	<iostream>
 	"time.h"
 	"arbolABB.h"
@@ -294,6 +294,6 @@
 	<iostream>
 	"automovil.h"
 
-1670922361 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\lista.cpp
+1670955501 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\lista.cpp
 	"lista.h"
 

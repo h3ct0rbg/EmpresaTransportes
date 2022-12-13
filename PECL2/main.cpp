@@ -39,11 +39,9 @@ int main()
     ArbolABB concesionarios = generarArbolConcesionarios();
     ListaD almacen;
 
-    int numero;
-    int numero1;
+    int numero, numero1;
     string cadena;
     Concesionario c;
-    Automovil v;
     int op;
 
     do{
@@ -67,12 +65,11 @@ int main()
 
             case 2:
                 system("cls");
-                int numero;
                 cout << "Numero de automoviles a generar: ";
                 cin >> numero;
-                cout << "----------------------------------------" << endl;
+                cout << "--------------------------------------------" << endl;
                 cout << "Se han generado " << numero << " automoviles" << endl;
-                cout << "----------------------------------------" << endl;
+                cout << "--------------------------------------------\n" << endl;
                 while(numero>0){
                     almacen.insertarNodoListaD(generarAutomovil(), 'f');
                     numero--;
@@ -83,43 +80,59 @@ int main()
             case 3:
                 system("cls");
                 almacen.mostrarLista(ASCENDENTE);
+                cout << endl;
                 system("pause");
                 break;
 
             case 4:
                 system("cls");
                 almacen.~ListaD();
+                cout << "-------------------------------------" << endl;
+                cout << "Se ha vaciado el almacen de fabrica" << endl;
+                cout << "-------------------------------------\n" << endl;
                 system("pause");
                 break;
 
             case 5:
                 system("cls");
-                cout << "Modelo de automovil que desea borrar del almacen: ";
+                cout << "Introduzca el modelo de automovil que desea borrar del almacen: ";
                 cin >> cadena;
+                cout << "-----------------------------------------------------------------\n" << endl;
                 almacen.borrarPorModelo(cadena);
+                cout << "---------------------------------------------------" << endl;
+                cout << "Modelo " << cadena << " borrado del almacen" << endl;
+                cout << "---------------------------------------------------\n" << endl;
                 system("pause");
                 break;
 
             case 6:
                 system("cls");
-                cout << "Numero de concesionario donde enviar los automoviles del almacen: ";
+                cout << "Introduzca el numero de concesionario al que se realiza el envio: ";
                 cin >> numero;
+                cout << "-----------------------------------------------------------------\n" << endl;
                 numero1 = 0;
                 while(almacen.getLongitud()>0){
                     concesionarios.Buscar(numero).lista_vehiculos.insertarEnOrden(almacen.borrarNodo(almacen.getCabeza()));
                     numero1++;
                 }
-                cout << "--------------------------------------------------------------" << endl;
+                cout << "------------------------------------------------------------------" << endl;
                 cout << "Se han enviado " << numero1 << " automoviles al concesionario " << numero << concesionarios.Buscar(numero).zona << endl;
-                cout << "--------------------------------------------------------------" << endl;
+                cout << "------------------------------------------------------------------\n" << endl;
                 system("pause");
                 break;
 
 //            case 7:
 //                system("cls");
-//                  string zona;
-//                  cout << "Introduzca una zona: ";
-//                  cin >> zona;
+//                cout << "Introduzca una zona: ";
+//                cin >> cadena;
+//                numero = 0;
+//                while(almacen.getLongitud()>0){
+//                    concesionarios.Buscar(numero).lista_vehiculos.insertarEnOrden(almacen.borrarNodo(almacen.getCabeza()));
+//                    numero++;
+//                }
+//                cout << "--------------------------------------------------------------" << endl;
+//                cout << "Se han enviado " << numero << " automoviles al concesionario " << numero << cadena << endl;
+//                cout << "--------------------------------------------------------------" << endl;
 //                system("pause");
 //                break;
 
@@ -127,26 +140,33 @@ int main()
                 system("cls");
                 cout << "Introduzca el numero de concesionario que desea ver: ";
                 cin >> numero;
-                c = concesionarios.Buscar(numero);
-                //Lista de vehiculos del concesionario
-                muestraConcesionario(c);
+                cout << "-----------------------------------------------------------------\n" << endl;
+                cadena = "";
+                muestraConcesionario(concesionarios.Buscar(numero), cadena);
+                cout << endl;
                 system("pause");
                 break;
 
             case 9:
                 system("cls");
-                cout << "Introduzca una zona: ";
+                cout << "Introduzca la letra de la zona que desea ver: ";
                 cin >> cadena;
-                concesionarios.mostrarConcesionariosZona(cadena);
+                cout << "-----------------------------------------------------------------\n" << endl;
+                concesionarios.InOrden(muestraConcesionario, cadena);
+                cout << endl;
                 system("pause");
                 break;
 
             case 10:
                 system("cls");
-                cout << "Introduzca un numero de concesionario para borrarlo: ";
+                cout << "Introduzca el numero de concesionario que desea borrar: ";
                 cin >> numero;
+                cout << "-----------------------------------------------------------------" << endl;
                 c = concesionarios.Buscar(numero);
                 concesionarios.Borrar(c);
+                cout << "------------------------------------------------------------" << endl;
+                cout << "Concesionario " << c.numero_concesionario << c.zona << " borrado" << endl;
+                cout << "------------------------------------------------------------\n" << endl;
                 system("pause");
                 break;
         }

@@ -46,13 +46,13 @@ void ArbolABB::Insertar(Concesionario dat)
 // Recorrido de árbol en inorden, aplicamos la función func, que tiene
 // el prototipo:
 // void func(int&);
-void ArbolABB::InOrden(void (*func)(Concesionario&) , NodoArbol *NodoArbol, bool r)
+void ArbolABB::InOrden(void (*func)(Concesionario&, string&), string zona, NodoArbol *NodoArbol, bool r)
 {
    if (Vacio(raiz)) return; //si está vacío nada
    if(r) NodoArbol = raiz;
-   if(NodoArbol->izquierdo) InOrden(func, NodoArbol->izquierdo, false);
-   func(NodoArbol->dato);
-   if(NodoArbol->derecho) InOrden(func, NodoArbol->derecho, false);
+   if(NodoArbol->izquierdo) InOrden(func, zona, NodoArbol->izquierdo, false);
+   func(NodoArbol->dato, zona);
+   if(NodoArbol->derecho) InOrden(func, zona, NodoArbol->derecho, false);
 }
 
 Concesionario& ArbolABB::Buscar(int concesionario)
@@ -61,7 +61,6 @@ Concesionario& ArbolABB::Buscar(int concesionario)
     while(!Vacio(actual))
     {
         if(concesionario == actual->dato.numero_concesionario) {
-            //cout << actual->dato.numero_concesionario << actual->dato.zona << endl;
             return actual->dato; //Concesionario encontrado
         }
         else{
@@ -77,20 +76,10 @@ Concesionario& ArbolABB::Buscar(int concesionario)
             actual = actual->izquierdo;
         }
     }
-    throw 'No se ha encontrado el concesionario';
+    throw "No se ha encontrado el concesionario";
 }
 
-void ArbolABB::mostrarConcesionariosZona(string zona, NodoArbol *NodoArbol, bool r){
-    if (Vacio(raiz)) return; //si está vacío nada
-    if(r) NodoArbol = raiz;
-    if(NodoArbol->izquierdo) mostrarConcesionariosZona(zona, NodoArbol->izquierdo, false);
-    if(NodoArbol->dato.zona == zona){
-        cout << NodoArbol->dato.numero_concesionario << NodoArbol->dato.zona << endl;
-    }
-    if(NodoArbol->derecho) mostrarConcesionariosZona(zona, NodoArbol->derecho, false);
-}
-
-void ArbolABB::Borrar(Concesionario dat)
+void ArbolABB::Borrar(Concesionario &dat)
 {
    NodoArbol *padre = NULL;
    NodoArbol *nodo;
@@ -98,18 +87,18 @@ void ArbolABB::Borrar(Concesionario dat)
    actual = raiz;
 
    // Mientras sea posible que el valor esté en el árbol
-   while(!Vacio(actual)) {
+   while(!Vacio(actual)){
       if(dat.numero_concesionario == actual->dato.numero_concesionario) { // Si el valor está en el nodo actual
          if(EsHoja(actual)) { // Y si además es un nodo hoja: lo borramos
             if(padre) {// Si tiene padre (no es el nodo raiz)
                // Anulamos el puntero que le hace referencia
-               if(padre->derecho == actual) padre->derecho = NULL;
-               else if(padre->izquierdo == actual) padre->izquierdo = NULL;
+               if(padre->derecho == actual){padre->derecho = NULL;}
+               else if(padre->izquierdo == actual){padre->izquierdo = NULL;};
             }
             else{
                 raiz=NULL;
             }
-            delete actual; // Borrar el nodo
+            delete actual; //Borrar el nodo
             actual = NULL;
             return;
          }

@@ -44,7 +44,6 @@ class ListaD
         Automovil borrarNodo(pNodoListaD aux);
         void borrarPorModelo(string modelo);
         void insertarListaVehiculos_Concesionario(ListaD listaVehiculos);
-        void escribeLista();
         bool listaVacia(){return cabeza == NULL;};
         bool esUnico(){return cabeza == fin;};
 

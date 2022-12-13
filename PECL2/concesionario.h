@@ -15,7 +15,7 @@ struct Concesionario {
 
 Concesionario dameConcesionarioVacio();
 Concesionario generarConcesionario(int num_concesionario, string zona);
-void escribeConcesionario(Concesionario &c);
-void muestraConcesionario(Concesionario &c);
+void escribeConcesionario(Concesionario &c, string &s);
+void muestraConcesionario(Concesionario &c, string &s);
 
 #endif //CONCESIONARIO_H

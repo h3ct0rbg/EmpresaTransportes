@@ -40,8 +40,8 @@
 		<Unit filename="automovil.h" />
 		<Unit filename="concesionario.cpp" />
 		<Unit filename="concesionario.h" />
-		<Unit filename="gestor.cpp" />
-		<Unit filename="gestor.h" />
+		<Unit filename="lista.cpp" />
+		<Unit filename="lista.h" />
 		<Unit filename="listas_dobles.cpp" />
 		<Unit filename="listas_dobles.h" />
 		<Unit filename="main.cpp" />

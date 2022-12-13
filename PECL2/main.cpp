@@ -43,6 +43,7 @@ int main()
     int numero1;
     string cadena;
     Concesionario c;
+    Automovil v;
     int op;
 
     do{
@@ -103,9 +104,14 @@ int main()
                 system("cls");
                 cout << "Numero de concesionario donde enviar los automoviles del almacen: ";
                 cin >> numero;
+                numero1 = 0;
                 while(almacen.getLongitud()>0){
                     concesionarios.Buscar(numero).lista_vehiculos.insertarEnOrden(almacen.borrarNodo(almacen.getCabeza()));
+                    numero1++;
                 }
+                cout << "--------------------------------------------------------------" << endl;
+                cout << "Se han enviado " << numero1 << " automoviles al concesionario " << numero << concesionarios.Buscar(numero).zona << endl;
+                cout << "--------------------------------------------------------------" << endl;
                 system("pause");
                 break;
 
@@ -123,7 +129,7 @@ int main()
                 cin >> numero;
                 c = concesionarios.Buscar(numero);
                 //Lista de vehiculos del concesionario
-                escribeConcesionario(c);
+                muestraConcesionario(c);
                 system("pause");
                 break;
 

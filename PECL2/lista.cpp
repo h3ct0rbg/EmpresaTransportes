@@ -14,67 +14,40 @@ Lista::~Lista()
     actual = NULL;
 }
 
-void Lista::insertarEnOrden(Automovil v) {
-
-    pNodoLista aux;
+void Lista::insertarEnOrden(Automovil v)
+{
+    pNodoLista aux, aux1;
     aux = new NodoLista(v);
-
-    if(listaVacia())
-    {
-        cabeza = aux;
-        fin = cabeza;
-        cout<<"vacia"<<endl;
+    actual=cabeza;
+    while((actual != NULL) && (actual->valor.bastidor).compare(v.bastidor)<0){
+        aux1 = actual;
+        actual = actual->siguiente;
     }
-    else
-    {
-        actual=cabeza;
-        cout<<"hola"<<endl;
-        while(actual)
-        {
-            if (actual->valor.bastidor < v.bastidor || actual != fin){
-                    actual = actual->siguiente;
-                    cout<<"no encontrado"<<endl;
-            }
-            else{
-                if(actual == cabeza){
-                    aux->siguiente = actual;
-                    cabeza = aux;
-                    cout<<"es cabeza"<<endl;
 
-                }
-                else if(actual == fin){
-                    aux->siguiente = NULL;
-                    actual->siguiente = aux;
-                    cout<<"es fin"<<endl;
-                }
-                else{
-                    aux->siguiente=actual->siguiente;
-                    actual->siguiente=aux;
-                    cout<<"else"<<endl;
-                }
-                actual = NULL; //mueve actual para que salga del while.
-            }
-        }
+    if(listaVacia()){ //La lista está vacía
+        cabeza = fin = aux;
+    }
+    else if(actual == cabeza){
+        aux->siguiente = actual;
+        cabeza = aux;
+    }
+    else{
+        aux->siguiente = actual;
+        aux1->siguiente = aux;
     }
     longitud++;
 }
 
-bool Lista::listaVacia(){
-    return cabeza == NULL;
+void Lista::mostrarLista(){
+    actual = cabeza;
+    while(actual != NULL){
+        escribeAutomovil(actual->valor);
+        actual = actual->siguiente;
+    }
 }
 
-void Lista::mostrarLista()
-{
-    //Nodo *aux;
-    pNodoLista aux;
-    aux = cabeza;
-
-    while(aux)
-    {
-        cout << aux->valor.bastidor << "-> ";
-        aux = aux->siguiente;
-    }
-    cout << endl;
+bool Lista::listaVacia(){
+    return cabeza == NULL;
 }
 
 void Lista::esSiguiente()

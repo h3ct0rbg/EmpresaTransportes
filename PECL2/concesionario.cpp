@@ -24,4 +24,10 @@ void escribeConcesionario(Concesionario &c){
     cout << "Concesionario " << c.numero_concesionario << c.zona << ": " << c.lista_vehiculos.getLongitud() << " automoviles" << endl;
 }
 
+void muestraConcesionario(Concesionario &c){
+    cout << "Concesionario " << c.numero_concesionario << c.zona << ": " << endl;
+    c.lista_vehiculos.mostrarLista();
+}
+
+
 

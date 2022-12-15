@@ -34,6 +34,10 @@ void muestraConcesionario(Concesionario &c, string &s){
         cout <<"----------------------------------------------------\n" << endl;
     }
 }
+//concesionarios.Buscar(numero).lista_vehiculos.insertarEnOrden(almacen.borrarNodo(almacen.getCabeza()));
 
-
-
+void insertarPorZona(Concesionario &c, string &s, Automovil automovilInsertado){
+    if(c.zona == s || s == ""){
+        c.lista_vehiculos.insertarEnOrden(automovilInsertado);
+    }
+}

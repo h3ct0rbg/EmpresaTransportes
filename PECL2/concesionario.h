@@ -3,6 +3,7 @@
 
 #include "lista.h"
 #include "concesionario.h"
+#include "listas_dobles.h"
 #include <iostream>
 
 using namespace std;
@@ -17,5 +18,6 @@ Concesionario dameConcesionarioVacio();
 Concesionario generarConcesionario(int num_concesionario, string zona);
 void escribeConcesionario(Concesionario &c, string &s);
 void muestraConcesionario(Concesionario &c, string &s);
+void insertarPorZona(Concesionario &c, string &s, Automovil automovilInsertado);
 
 #endif //CONCESIONARIO_H

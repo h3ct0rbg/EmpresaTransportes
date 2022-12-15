@@ -297,3 +297,49 @@
 1670955501 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\lista.cpp
 	"lista.h"
 
+1671106834 source:c:\users\jsanchez\git\pecl2_e\pecl2\arbolabb.cpp
+	"ArbolABB.h"
+	<string.h>
+	<iostream>
+
+1671105691 c:\users\jsanchez\git\pecl2_e\pecl2\arbolabb.h
+	"concesionario.h"
+	<iostream>
+
+1671106802 c:\users\jsanchez\git\pecl2_e\pecl2\concesionario.h
+	"lista.h"
+	"concesionario.h"
+	"listas_dobles.h"
+	<iostream>
+
+1671104661 c:\users\jsanchez\git\pecl2_e\pecl2\lista.h
+	<iostream>
+	"automovil.h"
+
+1671104661 c:\users\jsanchez\git\pecl2_e\pecl2\automovil.h
+	<iostream>
+
+1671104661 source:c:\users\jsanchez\git\pecl2_e\pecl2\automovil.cpp
+	"automovil.h"
+
+1671104661 source:c:\users\jsanchez\git\pecl2_e\pecl2\lista.cpp
+	"lista.h"
+
+1671104661 source:c:\users\jsanchez\git\pecl2_e\pecl2\listas_dobles.cpp
+	"listas_dobles.h"
+
+1671104661 c:\users\jsanchez\git\pecl2_e\pecl2\listas_dobles.h
+	"automovil.h"
+	<iostream>
+
+1671107339 source:c:\users\jsanchez\git\pecl2_e\pecl2\main.cpp
+	<iostream>
+	"time.h"
+	"arbolABB.h"
+	"automovil.h"
+	"concesionario.h"
+	"listas_dobles.h"
+
+1671106794 source:c:\users\jsanchez\git\pecl2_e\pecl2\concesionario.cpp
+	"concesionario.h"
+

@@ -42,6 +42,7 @@ int main()
     int numero, numero1;
     string cadena;
     Concesionario c;
+    int i;
     int op;
 
     do{
@@ -121,20 +122,22 @@ int main()
                 system("pause");
                 break;
 
-//            case 7:
-//                system("cls");
-//                cout << "Introduzca una zona: ";
-//                cin >> cadena;
-//                numero = 0;
-//                while(almacen.getLongitud()>0){
-//                    concesionarios.Buscar(numero).lista_vehiculos.insertarEnOrden(almacen.borrarNodo(almacen.getCabeza()));
-//                    numero++;
-//                }
-//                cout << "--------------------------------------------------------------" << endl;
-//                cout << "Se han enviado " << numero << " automoviles al concesionario " << numero << cadena << endl;
-//                cout << "--------------------------------------------------------------" << endl;
-//                system("pause");
-//                break;
+            case 7:
+                system("cls");
+                cout << "Introduzca una zona: ";
+                cin >> cadena;
+                while (!almacen.listaVacia()){
+                    for (i = 1; i< 16; i++){
+                        insertarPorZona(concesionarios.Buscar(i), cadena, almacen.borrarNodo(almacen.getCabeza()));
+                        cout << almacen.getLongitud();
+                    }
+                    i = 1;
+                }
+
+
+
+                system("pause");
+                break;
 
             case 8:
                 system("cls");

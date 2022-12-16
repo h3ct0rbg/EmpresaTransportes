@@ -238,33 +238,33 @@
 	"concesionario.h"
 	"listas_dobles.h"
 
-1670758508 source:e:\git\pecl2_empresatransportes\pecl2\arbolabb.cpp
+1671193056 source:e:\git\pecl2_empresatransportes\pecl2\arbolabb.cpp
 	"ArbolABB.h"
 	<string.h>
 	<iostream>
 
-1670758338 e:\git\pecl2_empresatransportes\pecl2\arbolabb.h
+1671193056 e:\git\pecl2_empresatransportes\pecl2\arbolabb.h
 	"concesionario.h"
 	<iostream>
 
-1670582227 e:\git\pecl2_empresatransportes\pecl2\concesionario.h
+1671193845 e:\git\pecl2_empresatransportes\pecl2\concesionario.h
+	"lista.h"
+	"concesionario.h"
 	"listas_dobles.h"
-	"concesionario.h"
 	<iostream>
 
-1670631498 e:\git\pecl2_empresatransportes\pecl2\listas_dobles.h
+1671193056 e:\git\pecl2_empresatransportes\pecl2\listas_dobles.h
 	"automovil.h"
 	<iostream>
 
-1670582227 e:\git\pecl2_empresatransportes\pecl2\automovil.h
+1671193056 e:\git\pecl2_empresatransportes\pecl2\automovil.h
 	<iostream>
 
-1670582227 source:e:\git\pecl2_empresatransportes\pecl2\automovil.cpp
+1671193056 source:e:\git\pecl2_empresatransportes\pecl2\automovil.cpp
 	"automovil.h"
 
-1670671915 source:e:\git\pecl2_empresatransportes\pecl2\concesionario.cpp
+1671193966 source:e:\git\pecl2_empresatransportes\pecl2\concesionario.cpp
 	"concesionario.h"
-	"arbolABB.h"
 
 1670629074 source:e:\git\pecl2_empresatransportes\pecl2\gestor.cpp
 	"gestor.h"
@@ -278,15 +278,14 @@
 	"arbolABB.h"
 	"concesionario.h"
 
-1670855043 source:e:\git\pecl2_empresatransportes\pecl2\listas_dobles.cpp
+1671193056 source:e:\git\pecl2_empresatransportes\pecl2\listas_dobles.cpp
 	"listas_dobles.h"
 
-1670853291 source:e:\git\pecl2_empresatransportes\pecl2\main.cpp
+1671196100 source:e:\git\pecl2_empresatransportes\pecl2\main.cpp
 	<iostream>
 	"time.h"
 	"arbolABB.h"
 	"automovil.h"
-	"gestor.h"
 	"concesionario.h"
 	"listas_dobles.h"
 
@@ -342,4 +341,11 @@
 
 1671106794 source:c:\users\jsanchez\git\pecl2_e\pecl2\concesionario.cpp
 	"concesionario.h"
+
+1671193056 e:\git\pecl2_empresatransportes\pecl2\lista.h
+	<iostream>
+	"automovil.h"
+
+1671193056 source:e:\git\pecl2_empresatransportes\pecl2\lista.cpp
+	"lista.h"
 

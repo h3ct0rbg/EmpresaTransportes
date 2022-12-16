@@ -128,14 +128,23 @@ int main()
                 cin >> cadena;
                 while (!almacen.listaVacia()){
                     for (i = 1; i< 16; i++){
-                        insertarPorZona(concesionarios.Buscar(i), cadena, almacen.borrarNodo(almacen.getCabeza()));
-                        cout << almacen.getLongitud();
+                        //Si almacen.getLongitud() == 0 aqui se rompe
+                        if (insertarPorZona(concesionarios.Buscar(i), cadena, almacen)){
+                            if (almacen.getLongitud() == 0){
+                                cout << almacen.getLongitud();
+                                break;
+                            }
+                            else{
+                                almacen.borrarNodo(almacen.getCabeza());
+                                cout << almacen.getLongitud();
+                            }
+
+                        }
                     }
-                    i = 1;
+
+
+
                 }
-
-
-
                 system("pause");
                 break;
 

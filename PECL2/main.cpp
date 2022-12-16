@@ -135,7 +135,6 @@ int main()
                                 break;
                             }
                             else{
-                                almacen.borrarNodo(almacen.getCabeza());
                                 cout << almacen.getLongitud();
                             }
 

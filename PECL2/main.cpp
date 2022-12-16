@@ -127,22 +127,11 @@ int main()
                 cout << "Introduzca una zona: ";
                 cin >> cadena;
                 while (!almacen.listaVacia()){
-                    for (i = 1; i< 16; i++){
-                        //Si almacen.getLongitud() == 0 aqui se rompe
-                        if (insertarPorZona(concesionarios.Buscar(i), cadena, almacen)){
-                            if (almacen.getLongitud() == 0){
-                                cout << almacen.getLongitud();
-                                break;
-                            }
-                            else{
-                                cout << almacen.getLongitud();
-                            }
-
-                        }
+                    numero = 1;
+                    while(numero<=16 && !almacen.listaVacia()){
+                        insertarPorZona(concesionarios.Buscar(numero), cadena, almacen);
+                        numero++;
                     }
-
-
-
                 }
                 system("pause");
                 break;

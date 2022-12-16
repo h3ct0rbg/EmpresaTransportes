@@ -18,6 +18,6 @@ Concesionario dameConcesionarioVacio();
 Concesionario generarConcesionario(int num_concesionario, string zona);
 void escribeConcesionario(Concesionario &c, string &s);
 void muestraConcesionario(Concesionario &c, string &s);
-bool insertarPorZona(Concesionario &c, string &s, ListaD &almacen);
+void insertarPorZona(Concesionario &c, string s, ListaD &almacen);
 
 #endif //CONCESIONARIO_H

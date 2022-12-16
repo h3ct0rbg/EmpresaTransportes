@@ -36,12 +36,8 @@ void muestraConcesionario(Concesionario &c, string &s){
 }
 //concesionarios.Buscar(numero).lista_vehiculos.insertarEnOrden(almacen.borrarNodo(almacen.getCabeza()));
 
-bool insertarPorZona(Concesionario &c, string &s, ListaD &almacen){
-    if(c.zona == s || s == ""){
+void insertarPorZona(Concesionario &c, string s, ListaD &almacen){
+    if(c.zona == s){
         c.lista_vehiculos.insertarEnOrden(almacen.borrarNodo(almacen.getCabeza()));
-        return true;
-    }
-    else{
-        return false;
     }
 }

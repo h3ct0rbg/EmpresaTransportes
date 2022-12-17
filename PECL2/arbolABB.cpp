@@ -192,3 +192,14 @@ int ArbolABB::alturaArbol(NodoArbol *aux) {
        else return(alturaDerecho+1);
    }
 }
+
+void ArbolABB::drawTree(NodoArbol* root) {
+  if (root == nullptr) return;
+
+  // Dibuja el nodo actual
+  cout << root->dato.numero_concesionario << " "<< endl;
+
+  // Dibuja el subárbol izquierdo y derecho
+  drawTree(root->izquierdo);
+  drawTree(root->derecho);
+}

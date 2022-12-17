@@ -179,7 +179,7 @@ ArbolABB generarArbolConcesionarios(){
 
 int ArbolABB::alturaArbol(NodoArbol *aux) {
    if (aux==NULL)
-       return 0;
+       return -1;
    else
    {
        /* calcule la altura de cada subárbol */
@@ -193,13 +193,16 @@ int ArbolABB::alturaArbol(NodoArbol *aux) {
    }
 }
 
-void ArbolABB::drawTree(NodoArbol* root) {
-  if (root == nullptr) return;
-
-  // Dibuja el nodo actual
-  cout << root->dato.numero_concesionario << " "<< endl;
-
-  // Dibuja el subárbol izquierdo y derecho
-  drawTree(root->izquierdo);
-  drawTree(root->derecho);
+void ArbolABB::dibujaArbol(NodoArbol* root, int cont){
+    if(root == NULL){
+        return;
+    }
+    else{
+        dibujaArbol(root->derecho, cont+1);
+        for(int i=0; i<cont; i++){
+            cout << "   ";
+        }
+        cout << root->dato.numero_concesionario << endl;
+        dibujaArbol(root->izquierdo, cont+1);
+    }
 }

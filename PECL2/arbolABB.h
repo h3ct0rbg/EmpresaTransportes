@@ -22,7 +22,6 @@ class ArbolABB {
         //Punteros de la lista, para cabeza y NodoArbol actual:
         NodoArbol *raiz;
         NodoArbol *actual;
-        int contador;
         int altura;
 
     public:
@@ -39,7 +38,7 @@ class ArbolABB {
        void InOrden(void (*func)(Concesionario&, string&), string zona="", NodoArbol *NodoArbol=NULL, bool r=true); //Aplicar una función a cada elemento del árbol:
        int alturaArbol(NodoArbol *aux);
        NodoArbol* getRaiz() { return raiz;}
-       void drawTree(NodoArbol* root);
+       void dibujaArbol(NodoArbol* root, int cont=0);
 
 };
 

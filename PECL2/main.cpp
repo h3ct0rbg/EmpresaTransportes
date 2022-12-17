@@ -39,11 +39,9 @@ int main()
     ArbolABB concesionarios = generarArbolConcesionarios();
     ListaD almacen;
 
-    int numero, numero1;
+    int op, numero, numero1;
     string cadena;
     Concesionario c;
-    int i;
-    int op;
 
     do{
         menu();
@@ -61,8 +59,9 @@ int main()
             case 1:
                 system("cls");
                 concesionarios.InOrden(escribeConcesionario);
-                cout << "Altura de concesionarios: " << concesionarios.alturaArbol(concesionarios.getRaiz()) << endl;
-                concesionarios.drawTree(concesionarios.getRaiz());
+                cout << "\nAltura del arbol: " << concesionarios.alturaArbol(concesionarios.getRaiz()) << endl;
+                cout << "Raiz del arbol: " << concesionarios.getRaiz()->dato.numero_concesionario << "\n" << endl;
+                concesionarios.dibujaArbol(concesionarios.getRaiz());
                 system("pause");
                 break;
 

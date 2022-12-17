@@ -177,3 +177,18 @@ ArbolABB generarArbolConcesionarios(){
     return concesionarios;
 }
 
+int ArbolABB::alturaArbol(NodoArbol *aux) {
+   if (aux==NULL)
+       return 0;
+   else
+   {
+       /* calcule la altura de cada subárbol */
+       int alturaIzquierdo = alturaArbol(aux->izquierdo);
+       int alturaDerecho = alturaArbol(aux->derecho);
+
+       /* use el subárbol más alto */
+       if (alturaIzquierdo > alturaDerecho)
+           return(alturaIzquierdo+1);
+       else return(alturaDerecho+1);
+   }
+}

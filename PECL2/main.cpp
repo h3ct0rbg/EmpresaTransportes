@@ -61,6 +61,7 @@ int main()
             case 1:
                 system("cls");
                 concesionarios.InOrden(escribeConcesionario);
+                cout << "Altura de concesionarios: " << concesionarios.alturaArbol(concesionarios.getRaiz()) << endl;
                 system("pause");
                 break;
 

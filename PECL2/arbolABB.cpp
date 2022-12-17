@@ -200,9 +200,9 @@ void ArbolABB::dibujaArbol(NodoArbol* root, int cont){
     else{
         dibujaArbol(root->derecho, cont+1);
         for(int i=0; i<cont; i++){
-            cout << "   ";
+            cout << "    |";
         }
-        cout << root->dato.numero_concesionario << endl;
+        cout << "-->" << root->dato.numero_concesionario << endl;
         dibujaArbol(root->izquierdo, cont+1);
     }
 }

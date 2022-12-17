@@ -142,3 +142,43 @@ void ListaD::insertarListaVehiculos_Concesionario(ListaD listaVehiculos){
         aux = aux->siguiente;
     }
 }
+
+void ListaD::sortModelo(pNodoListaD cabeza) {
+  if (cabeza == NULL || cabeza->siguiente == NULL) {
+    return;
+  }
+
+  bool sorted = false;
+  while (!sorted) {
+    sorted = true;
+    pNodoListaD aux = cabeza;
+    while (aux->siguiente != NULL) {
+      if (aux->valor.modelo.compare(aux->siguiente->valor.modelo) > 0) {
+        swap(aux->valor, aux->siguiente->valor);
+        sorted = false;
+      }
+      aux = aux->siguiente;
+    }
+  }
+}
+
+void ListaD::sortColor(pNodoListaD cabeza) {
+  if (cabeza == NULL || cabeza->siguiente == NULL) {
+    return;
+  }
+
+  bool sorted = false;
+  while (!sorted) {
+    sorted = true;
+    pNodoListaD aux = cabeza;
+    while (aux->siguiente != NULL) {
+      if (aux->valor.modelo.compare(aux->siguiente->valor.modelo) == 0) {
+            if (aux->valor.color.compare(aux->siguiente->valor.color) > 0){
+                swap(aux->valor, aux->siguiente->valor);
+                sorted = false;
+            }
+      }
+      aux = aux->siguiente;
+    }
+  }
+}

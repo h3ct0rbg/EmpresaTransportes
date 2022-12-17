@@ -81,6 +81,8 @@ int main()
 
             case 3:
                 system("cls");
+                almacen.sortModelo(almacen.getCabeza());
+                almacen.sortColor(almacen.getCabeza());
                 almacen.mostrarLista(ASCENDENTE);
                 cout << endl;
                 system("pause");

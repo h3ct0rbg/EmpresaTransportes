@@ -30,6 +30,7 @@ void menu()
     cout<<" 8: Mostrar un Concesionario"<<endl;
     cout<<" 9: Mostrar Concesionarios (dada una zona)"<<endl;
     cout<<"10: Borrar Concesionario"<<endl;
+    cout<<"11: Mostrar Arbol de Concesionarios"<<endl;
 }
 
 int main()
@@ -42,6 +43,7 @@ int main()
     int op, numero, numero1;
     string cadena;
     Concesionario c;
+    Automovil v;
 
     do{
         menu();
@@ -59,9 +61,6 @@ int main()
             case 1:
                 system("cls");
                 concesionarios.InOrden(escribeConcesionario);
-                cout << "\nAltura del arbol: " << concesionarios.alturaArbol(concesionarios.getRaiz()) << endl;
-                cout << "Raiz del arbol: " << concesionarios.getRaiz()->dato.numero_concesionario << "\n" << endl;
-                concesionarios.dibujaArbol(concesionarios.getRaiz());
                 system("pause");
                 break;
 
@@ -73,7 +72,7 @@ int main()
                 cout << "Se han generado " << numero << " automoviles" << endl;
                 cout << "--------------------------------------------\n" << endl;
                 while(numero>0){
-                    almacen.insertarNodoListaD(generarAutomovil(), 'f');
+                    almacen.insertarNodoListaD(generarAutomovil());
                     numero--;
                 }
                 system("pause");
@@ -81,8 +80,6 @@ int main()
 
             case 3:
                 system("cls");
-                almacen.sortModelo(almacen.getCabeza());
-                almacen.sortColor(almacen.getCabeza());
                 almacen.mostrarLista(ASCENDENTE);
                 cout << endl;
                 system("pause");
@@ -116,7 +113,10 @@ int main()
                 cout << "-----------------------------------------------------------------\n" << endl;
                 numero1 = 0;
                 while(almacen.getLongitud()>0){
-                    concesionarios.Buscar(numero).lista_vehiculos.insertarEnOrden(almacen.borrarNodo(almacen.getCabeza()));
+                    v = almacen.borrarNodo(almacen.getCabeza());
+                    v.concesionario = numero;
+                    v.zona = concesionarios.Buscar(numero).zona;
+                    concesionarios.Buscar(numero).lista_vehiculos.insertarEnOrden(v);
                     numero1++;
                 }
                 cout << "------------------------------------------------------------------" << endl;
@@ -129,6 +129,9 @@ int main()
                 system("cls");
                 cout << "Introduzca una zona: ";
                 cin >> cadena;
+                cout << "------------------------------------------------------------------" << endl;
+                cout << "Se han enviado " << almacen.getLongitud() << " automoviles a los concesionarios de la zona " << cadena << endl;
+                cout << "------------------------------------------------------------------\n" << endl;
                 while (!almacen.listaVacia()){
                     numero = 1;
                     while(numero<=16 && !almacen.listaVacia()){
@@ -172,6 +175,14 @@ int main()
                 cout << "------------------------------------------------------------\n" << endl;
                 system("pause");
                 break;
+
+            case 11:
+                cout << "\nAltura del arbol: " << concesionarios.alturaArbol(concesionarios.getRaiz()) << endl;
+                cout << "Raiz del arbol: " << concesionarios.getRaiz()->dato.numero_concesionario << "\n" << endl;
+                concesionarios.dibujaArbol(concesionarios.getRaiz());
+                cout << endl;
+                system("pause");
+                break;
         }
         system("cls");
 
@@ -179,4 +190,3 @@ int main()
 
     return 0;
 }
-

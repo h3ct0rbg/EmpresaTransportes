@@ -16,62 +16,39 @@ ListaD::~ListaD()
         longitud=0;
 }
 
-void ListaD::insertarNodoListaD(Automovil v, char c)
+void ListaD::insertarNodoListaD(Automovil v)
 {
-    pNodoListaD aux;
-    char tipoInsercion = c;
+    pNodoListaD aux = new NodoListaD(v);
+    pNodoListaD actual = cabeza;
 
-    if(listaVacia()) { //Si la lista está vacía
-        aux = new NodoListaD(v);
-        fin=cabeza=aux;
+    while(actual!=fin && v.modelo != actual->valor.modelo){
+        actual = actual->siguiente;
     }
-    else if (tipoInsercion=='f') {//Inserción por el final
-        aux= new NodoListaD(v);
-        aux->anterior=fin;
-        fin->siguiente=aux;
-        fin=aux;
+    while(actual!=fin && v.color != actual->valor.color && v.modelo == actual->siguiente->valor.modelo){
+        actual = actual->siguiente;
     }
-    else if (tipoInsercion=='p') {//Inserción por el principio
-        aux= new NodoListaD(v);
-        aux->siguiente=cabeza;
-        cabeza->anterior=aux;
-        cabeza=aux;
-    }
-    longitud++;
+
+        if(listaVacia()){ //Si la lista esta vacia
+            cabeza=fin=aux;
+        }
+        else if(actual == cabeza){ //Si es el primero de la lista
+            aux->siguiente=cabeza;
+            cabeza->anterior=aux;
+            cabeza=aux;
+        }
+        else if(actual == fin){
+            aux->anterior=fin;
+            fin->siguiente=aux;
+            fin=aux;
+        }
+        else{
+            aux->siguiente=actual->siguiente;
+            aux->anterior=actual;
+            actual->siguiente->anterior=aux;
+            actual->siguiente=aux;
+        }
+        longitud++;
 }
-//void ListaD::insertarNodoListaD(Automovil v)
-//{
-//    pNodoListaD aux = cabeza;
-//
-//    while(v.modelo != aux.valor.modelo || aux!=fin){
-//        aux = aux->siguiente;
-//    }
-//
-//        if(cabeza==NULL){ //Si la lista esta vacia
-//            aux = new NodoListaD(v);
-//            cabeza=fin=aux;
-//        }
-//        else if(aux == cabeza){ //Si es el primero de la lista
-//            aux = new NodoListaD(v);
-//            aux->siguiente=cabeza;
-//            cabeza->anterior=aux;
-//            cabeza=aux;
-//        }
-//        else if(aux == fin){
-//            aux = new NodoListaD(v);
-//            aux->anterior=fin;
-//            fin->siguiente=aux;
-//            fin=aux;
-//        }
-//        else(){
-//            aux = new NodoListaD(v);
-//        }
-//    }
-//    else if(){
-//
-//    }
-//    longitud++;
-//}
 
 void ListaD::mostrarLista(int orden)
 {
@@ -131,54 +108,4 @@ void ListaD::borrarPorModelo(string modelo){
         }
         aux = aux->siguiente;
     }
-}
-
-void ListaD::insertarListaVehiculos_Concesionario(ListaD listaVehiculos){
-    pNodoListaD aux;
-    aux = cabeza;
-    while(aux) {
-        //cout << aux->valor.modelo << endl;
-        listaVehiculos.insertarNodoListaD(aux->valor, 'f');
-        aux = aux->siguiente;
-    }
-}
-
-void ListaD::sortModelo(pNodoListaD cabeza) {
-  if (cabeza == NULL || cabeza->siguiente == NULL) {
-    return;
-  }
-
-  bool sorted = false;
-  while (!sorted) {
-    sorted = true;
-    pNodoListaD aux = cabeza;
-    while (aux->siguiente != NULL) {
-      if (aux->valor.modelo.compare(aux->siguiente->valor.modelo) > 0) {
-        swap(aux->valor, aux->siguiente->valor);
-        sorted = false;
-      }
-      aux = aux->siguiente;
-    }
-  }
-}
-
-void ListaD::sortColor(pNodoListaD cabeza) {
-  if (cabeza == NULL || cabeza->siguiente == NULL) {
-    return;
-  }
-
-  bool sorted = false;
-  while (!sorted) {
-    sorted = true;
-    pNodoListaD aux = cabeza;
-    while (aux->siguiente != NULL) {
-      if (aux->valor.modelo.compare(aux->siguiente->valor.modelo) == 0) {
-            if (aux->valor.color.compare(aux->siguiente->valor.color) > 0){
-                swap(aux->valor, aux->siguiente->valor);
-                sorted = false;
-            }
-      }
-      aux = aux->siguiente;
-    }
-  }
 }

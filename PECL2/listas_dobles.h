@@ -39,15 +39,12 @@ class ListaD
             longitud=0;
         }
         ~ListaD();
-        void insertarNodoListaD(Automovil v, char c);
+        void insertarNodoListaD(Automovil v);
         void mostrarLista(int orden);
         Automovil borrarNodo(pNodoListaD aux);
         void borrarPorModelo(string modelo);
-        void insertarListaVehiculos_Concesionario(ListaD listaVehiculos);
         bool listaVacia(){return cabeza == NULL;};
         bool esUnico(){return cabeza == fin;};
-        void sortModelo(pNodoListaD head);
-        void sortColor(pNodoListaD head);
 
         //Getter
         pNodoListaD getCabeza(){

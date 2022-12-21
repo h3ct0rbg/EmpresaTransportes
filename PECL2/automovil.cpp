@@ -34,13 +34,13 @@ string generaBastidor(){
 }
 
 //Generar aleatoriamente un automovil y lo introduce en la cola de fabrica.
-Automovil generarAutomovil(){
+Automovil generarAutomovil(string z, int c){
     Automovil a;
     a = dameAutomovilVacio();
     a.bastidor = generaBastidor();
     a.modelo = modelos[rand()%5];
-    a.color = colores[rand()%5];
-    a.zona = "Z";
-    a.concesionario = 0;
+    a.color = colores[rand()%6];
+    a.zona = z;
+    a.concesionario = c;
     return a;
 }

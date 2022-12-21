@@ -72,7 +72,9 @@ int main()
                 cout << "Se han generado " << numero << " automoviles" << endl;
                 cout << "--------------------------------------------\n" << endl;
                 while(numero>0){
-                    almacen.insertarNodoListaD(generarAutomovil());
+                    int c = rand()%16 + 1;
+                    string z = concesionarios.Buscar(c).zona;
+                    almacen.insertarNodoListaD(generarAutomovil(z, c));
                     numero--;
                 }
                 system("pause");
@@ -112,10 +114,8 @@ int main()
                 cin >> numero;
                 cout << "-----------------------------------------------------------------\n" << endl;
                 numero1 = 0;
-                while(almacen.getLongitud()>0){
-                    v = almacen.borrarNodo(almacen.getCabeza());
-                    v.concesionario = numero;
-                    v.zona = concesionarios.Buscar(numero).zona;
+                while(almacen.Buscar(numero)){
+                    v = almacen.borrarNodo(almacen.Buscar(numero));
                     concesionarios.Buscar(numero).lista_vehiculos.insertarEnOrden(v);
                     numero1++;
                 }
@@ -129,16 +129,15 @@ int main()
                 system("cls");
                 cout << "Introduzca una zona: ";
                 cin >> cadena;
-                cout << "------------------------------------------------------------------" << endl;
-                cout << "Se han enviado " << almacen.getLongitud() << " automoviles a los concesionarios de la zona " << cadena << endl;
-                cout << "------------------------------------------------------------------\n" << endl;
-                while (!almacen.listaVacia()){
-                    numero = 1;
-                    while(numero<=16 && !almacen.listaVacia()){
-                        insertarPorZona(concesionarios.Buscar(numero), cadena, almacen);
-                        numero++;
-                    }
+                numero = 0;
+                while(almacen.Buscar(cadena)){
+                    v = almacen.borrarNodo(almacen.Buscar(cadena));
+                    concesionarios.Buscar(v.concesionario).lista_vehiculos.insertarEnOrden(v);
+                    numero++;
                 }
+                cout << "------------------------------------------------------------------" << endl;
+                cout << "Se han enviado " << numero << " automoviles a los concesionarios de la zona " << cadena << endl;
+                cout << "------------------------------------------------------------------\n" << endl;
                 system("pause");
                 break;
 

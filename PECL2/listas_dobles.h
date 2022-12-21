@@ -41,6 +41,8 @@ class ListaD
         ~ListaD();
         void insertarNodoListaD(Automovil v);
         void mostrarLista(int orden);
+        pNodoListaD Buscar(int n);
+        pNodoListaD Buscar(string s);
         Automovil borrarNodo(pNodoListaD aux);
         void borrarPorModelo(string modelo);
         bool listaVacia(){return cabeza == NULL;};

@@ -109,3 +109,30 @@ void ListaD::borrarPorModelo(string modelo){
         aux = aux->siguiente;
     }
 }
+
+pNodoListaD ListaD::Buscar(int n){
+
+    pNodoListaD aux;
+
+    aux = cabeza;
+    while(aux){
+        if(aux->valor.concesionario == n){
+            return aux;
+        }
+        aux = aux->siguiente;
+    }
+    return aux;
+}
+
+pNodoListaD ListaD::Buscar(string s){
+
+    pNodoListaD aux;
+    aux = cabeza;
+    while(aux){
+        if(aux->valor.zona == s){
+            return aux;
+        }
+        aux = aux->siguiente;
+    }
+    return aux;
+}

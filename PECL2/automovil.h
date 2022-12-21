@@ -16,6 +16,6 @@ struct Automovil {
 void escribeAutomovil(Automovil p);
 Automovil dameAutomovilVacio(void);
 string generaBastidor(void);
-Automovil generarAutomovil(void);
+Automovil generarAutomovil(string z, int c);
 
 #endif // AUTOMOVIL_H

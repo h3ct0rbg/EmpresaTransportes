@@ -188,12 +188,12 @@
 1670354663 source:c:\users\hbena\documents\github\pecl2_empresatransporte\pecl2\arbolabb.cpp
 	"ArbolABB.h"
 
-1671301275 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\arbolabb.cpp
+1671724648 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\arbolabb.cpp
 	"ArbolABB.h"
 	<string.h>
 	<iostream>
 
-1671627807 c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\arbolabb.h
+1671714646 c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\arbolabb.h
 	<iostream>
 	"concesionario.h"
 
@@ -231,10 +231,10 @@
 1671634813 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\listas_dobles.cpp
 	"listas_dobles.h"
 
-1671634782 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\main.cpp
+1671900642 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\main.cpp
 	<iostream>
 	"time.h"
-	"arbolABB.h"
+	"ArbolAVL.h"
 	"automovil.h"
 	"concesionario.h"
 	"listas_dobles.h"
@@ -349,4 +349,13 @@
 
 1671318729 source:e:\git\pecl2_empresatransportes\pecl2\lista.cpp
 	"lista.h"
+
+1671900862 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\arbolavl.cpp
+	"ArbolAVL.h"
+	<string.h>
+	<iostream>
+
+1671900857 c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\arbolavl.h
+	<iostream>
+	"concesionario.h"
 

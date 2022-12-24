@@ -1,4 +1,4 @@
-#include "ArbolABB.h"
+#include "ArbolAVL.h"
 #include <string.h>
 #include <iostream>
 
@@ -6,7 +6,7 @@ string zona[4] = {"A", "B", "C", "D"};
 int num_concesionario[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
 
 //Borra una rama desde el nodo indicado
-void ArbolABB::Podar(NodoArbol* &NodoArbol)
+void ArbolAVL::Podar(NodoArbol* &NodoArbol)
 {
    // Algoritmo recursivo, recorrido en postorden
    if(NodoArbol) {
@@ -17,36 +17,42 @@ void ArbolABB::Podar(NodoArbol* &NodoArbol)
    }
 }
 
-//Insertar un int en el árbol ABB
-void ArbolABB::Insertar(Concesionario dat)
+//Insertar un int en el árbol AVL
+void ArbolAVL::Insertar(Concesionario dat)
 {
    NodoArbol *padre = NULL;
 
    actual = raiz;
    // Buscar el int en el árbol, manteniendo un puntero al NodoArbol padre
    while(!Vacio(actual) && dat.numero_concesionario != actual->dato.numero_concesionario) {
-      padre = actual;
-      if(dat.numero_concesionario > actual->dato.numero_concesionario) actual = actual->derecho;
-      else if(dat.numero_concesionario < actual->dato.numero_concesionario) actual = actual->izquierdo;
+        padre = actual;
+        if(dat.numero_concesionario > actual->dato.numero_concesionario) actual = actual->derecho;
+        else if(dat.numero_concesionario < actual->dato.numero_concesionario) actual = actual->izquierdo;
    }
 
    // Si se ha encontrado el elemento, regresar sin insertar
-   if(!Vacio(actual)) return;
+   if(!Vacio(actual)){
+        return;
+   }
    // Si padre es NULL, entonces el árbol estaba vacío, el nuevo NodoArbol será
    // el NodoArbol raiz
-   if(Vacio(padre)) raiz = new NodoArbol(dat);
+   else if(Vacio(padre)){
+        raiz = new NodoArbol(dat);
+   }
    // Si el int es menor que el que contiene el NodoArbol padre, lo insertamos
    // en la rama izquierda
-   else if(dat.numero_concesionario < padre->dato.numero_concesionario) padre->izquierdo = new NodoArbol(dat);
+   else if(dat.numero_concesionario < padre->dato.numero_concesionario){
+        padre->izquierdo = new NodoArbol(dat);
+   }
    // Si el int es mayor que el que contiene el NodoArbol padre, lo insertamos
    // en la rama derecha
-   else if(dat.numero_concesionario > padre->dato.numero_concesionario) padre->derecho = new NodoArbol(dat);
+   else if(dat.numero_concesionario > padre->dato.numero_concesionario){
+        padre->derecho = new NodoArbol(dat);
+   }
 }
 
-// Recorrido de árbol en inorden, aplicamos la función func, que tiene
-// el prototipo:
-// void func(int&);
-void ArbolABB::InOrden(void (*func)(Concesionario&, string&), string zona, NodoArbol *NodoArbol, bool r)
+// Recorrido de árbol en inorden
+void ArbolAVL::InOrden(void (*func)(Concesionario&, string&), string zona, NodoArbol *NodoArbol, bool r)
 {
    if (Vacio(raiz)) return; //si está vacío nada
    if(r) NodoArbol = raiz;
@@ -55,7 +61,7 @@ void ArbolABB::InOrden(void (*func)(Concesionario&, string&), string zona, NodoA
    if(NodoArbol->derecho) InOrden(func, zona, NodoArbol->derecho, false);
 }
 
-Concesionario& ArbolABB::Buscar(int concesionario)
+Concesionario& ArbolAVL::Buscar(int concesionario)
 {
     actual = raiz;
     while(!Vacio(actual))
@@ -63,14 +69,8 @@ Concesionario& ArbolABB::Buscar(int concesionario)
         if(concesionario == actual->dato.numero_concesionario) {
             return actual->dato; //Concesionario encontrado
         }
-        else{
-            if(concesionario > actual->dato.numero_concesionario){
+        else if(concesionario > actual->dato.numero_concesionario){
                 actual = actual->derecho;
-            }
-
-        }
-        if(concesionario > actual->dato.numero_concesionario){
-            actual = actual->derecho;
         }
         else if(concesionario < actual->dato.numero_concesionario){
             actual = actual->izquierdo;
@@ -79,7 +79,7 @@ Concesionario& ArbolABB::Buscar(int concesionario)
     throw "No se ha encontrado el concesionario";
 }
 
-void ArbolABB::Borrar(Concesionario &dat)
+void ArbolAVL::Borrar(Concesionario &dat)
 {
    NodoArbol *padre = NULL;
    NodoArbol *nodo;
@@ -156,10 +156,10 @@ void ArbolABB::Borrar(Concesionario &dat)
 }
 
 //Genera aleatoriamente el arbol binario de concesionarios
-ArbolABB generarArbolConcesionarios(){
+ArbolAVL generarArbolConcesionarios(){
     string zona[4] = {"A", "B", "C", "D"};
     int num_concesionario[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
-    ArbolABB concesionarios;
+    ArbolAVL concesionarios;
     int aux = 0;
     int randomIndex = 0;
 
@@ -177,7 +177,7 @@ ArbolABB generarArbolConcesionarios(){
     return concesionarios;
 }
 
-int ArbolABB::alturaArbol(NodoArbol *aux) {
+int ArbolAVL::alturaArbol(NodoArbol *aux) {
    if (aux==NULL)
        return -1;
    else
@@ -193,7 +193,14 @@ int ArbolABB::alturaArbol(NodoArbol *aux) {
    }
 }
 
-void ArbolABB::dibujaArbol(NodoArbol* root, int cont){
+int ArbolAVL::factorBalanceo(NodoArbol *aux) {
+    if (aux == NULL) {
+        return 0;
+    }
+    return alturaArbol(aux->derecho) - alturaArbol(aux->izquierdo);
+}
+
+void ArbolAVL::dibujaArbol(NodoArbol* root, int cont) {
     if(root == NULL){
         return;
     }

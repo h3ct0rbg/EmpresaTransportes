@@ -1,6 +1,6 @@
 #include <iostream>
 #include "time.h"
-#include "arbolABB.h"
+#include "ArbolAVL.h"
 #include "automovil.h"
 #include "concesionario.h"
 #include "listas_dobles.h"
@@ -37,7 +37,7 @@ int main()
 {
     srand (time(NULL));
 
-    ArbolABB concesionarios = generarArbolConcesionarios();
+    ArbolAVL concesionarios = generarArbolConcesionarios();
     ListaD almacen;
 
     int op, numero, numero1;
@@ -176,8 +176,11 @@ int main()
                 break;
 
             case 11:
-                cout << "\nAltura del arbol: " << concesionarios.alturaArbol(concesionarios.getRaiz()) << endl;
-                cout << "Raiz del arbol: " << concesionarios.getRaiz()->dato.numero_concesionario << "\n" << endl;
+                system("cls");
+                cout << "\nRaiz del arbol: " << concesionarios.getRaiz()->dato.numero_concesionario << endl;
+                cout << "Altura del arbol: " << concesionarios.alturaArbol(concesionarios.getRaiz()) << endl;
+                cout << "Factor de balanceo del arbol es " << concesionarios.factorBalanceo(concesionarios.getRaiz()) << endl;
+                cout << endl;
                 concesionarios.dibujaArbol(concesionarios.getRaiz());
                 cout << endl;
                 system("pause");

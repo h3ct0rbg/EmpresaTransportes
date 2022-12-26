@@ -34,8 +34,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="arbolABB.cpp" />
-		<Unit filename="arbolABB.h" />
+		<Unit filename="arbolAVL.cpp" />
+		<Unit filename="arbolAVL.h" />
 		<Unit filename="automovil.cpp" />
 		<Unit filename="automovil.h" />
 		<Unit filename="concesionario.cpp" />

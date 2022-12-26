@@ -10,10 +10,10 @@ using namespace std;
 class NodoArbol {
 
     public:
-        NodoArbol(Concesionario dat, int alt=0, NodoArbol *izq=NULL, NodoArbol *der=NULL) :
-        dato(dat), altura(alt), izquierdo(izq), derecho(der) {}
+        NodoArbol(Concesionario dat, int fe=0, NodoArbol *izq=NULL, NodoArbol *der=NULL) :
+        dato(dat), factorEquilibrio(fe), izquierdo(izq), derecho(der) {}
         Concesionario dato;
-        int altura;
+        int factorEquilibrio;
         NodoArbol *izquierdo;
         NodoArbol *derecho;
 };
@@ -37,8 +37,11 @@ class ArbolAVL {
        bool Vacio(NodoArbol *r) { return r==NULL; } //Comprobar si el árbol está vacío
        bool EsHoja(NodoArbol *r) { return !r->derecho && !r->izquierdo; } //Comprobar si es un NodoArbol hoja
        void InOrden(void (*func)(Concesionario&, string&), string zona="", NodoArbol *NodoArbol=NULL, bool r=true); //Aplicar una función a cada elemento del árbol:
-       int alturaArbol(NodoArbol *aux);
-       int factorBalanceo(NodoArbol *aux);
+       int alturaArbol(NodoArbol *a);
+       int factorBalanceo(NodoArbol *a);
+       void rotacionSimple(NodoArbol *a, bool giroizq);
+       void rotacionDoble(NodoArbol *a, bool giroizq);
+       void balancear(NodoArbol *a);
        void dibujaArbol(NodoArbol* root, int cont=0);
 
        //Getter

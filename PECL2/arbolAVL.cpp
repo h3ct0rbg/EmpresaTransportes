@@ -49,6 +49,7 @@ void ArbolAVL::Insertar(Concesionario dat)
    else if(dat.numero_concesionario > padre->dato.numero_concesionario){
         padre->derecho = new NodoArbol(dat);
    }
+   balancear(raiz);
 }
 
 // Recorrido de árbol en inorden
@@ -177,14 +178,14 @@ ArbolAVL generarArbolConcesionarios(){
     return concesionarios;
 }
 
-int ArbolAVL::alturaArbol(NodoArbol *aux) {
-   if (aux==NULL)
+int ArbolAVL::alturaArbol(NodoArbol *a) {
+   if (a==NULL)
        return -1;
    else
    {
        /* calcule la altura de cada subárbol */
-       int alturaIzquierdo = alturaArbol(aux->izquierdo);
-       int alturaDerecho = alturaArbol(aux->derecho);
+       int alturaIzquierdo = alturaArbol(a->izquierdo);
+       int alturaDerecho = alturaArbol(a->derecho);
 
        /* use el subárbol más alto */
        if (alturaIzquierdo > alturaDerecho)
@@ -193,11 +194,60 @@ int ArbolAVL::alturaArbol(NodoArbol *aux) {
    }
 }
 
-int ArbolAVL::factorBalanceo(NodoArbol *aux) {
-    if (aux == NULL) {
+int ArbolAVL::factorBalanceo(NodoArbol *a) {
+    if (a == NULL) {
         return 0;
     }
-    return alturaArbol(aux->derecho) - alturaArbol(aux->izquierdo);
+    return alturaArbol(a->derecho) - alturaArbol(a->izquierdo);
+}
+
+void ArbolAVL::rotacionSimple(NodoArbol *a, bool giroizq) {
+    NodoArbol *aux;
+
+    if(giroizq){
+        aux = a->izquierdo;
+        a->izquierdo = aux->derecho;
+        aux->derecho = a;
+    }
+    else{
+        aux = a->derecho;
+        a->derecho = aux->izquierdo;
+        aux->izquierdo = a;
+    }
+}
+
+void ArbolAVL::rotacionDoble(NodoArbol *a, bool giroizq) {
+    if(giroizq){ //rotación izquierda-derecha
+        rotacionSimple(a->izquierdo, false);
+        rotacionSimple(a, true);
+    }
+    else{ //rotación derecha-izquierda
+        rotacionSimple(a->derecho, true);
+        rotacionSimple(a, false);
+    }
+}
+
+void ArbolAVL::balancear(NodoArbol *a) {
+    if(!Vacio(a)){
+        if(alturaArbol(a->derecho) - alturaArbol(a->izquierdo) == -2){ //Desequilibrio hacia la izquierda
+            if(alturaArbol(a->izquierdo->izquierdo) >= alturaArbol(a->izquierdo->derecho)){ //Desequilibrio simple izquierda-izquierda
+                rotacionSimple(a, true);
+            }
+            else{ //Desequilibrio doble izquierda-derecha
+                rotacionDoble(a, true);
+            }
+        }
+        else{
+            if(alturaArbol(a->derecho) - alturaArbol(a->izquierdo) == 2){ //Desequilibrio hacia la derecha
+                if(alturaArbol(a->derecho->derecho) >= alturaArbol(a->derecho->izquierdo)){ //Desequilibrio simple derecha-derecha
+                    rotacionSimple(a, false);
+                }
+                else{ //Desequilibrio doble derecha-izquierda
+                    rotacionDoble(a, false);
+                }
+            }
+        }
+    }
 }
 
 void ArbolAVL::dibujaArbol(NodoArbol* root, int cont) {

@@ -156,31 +156,9 @@ void ArbolAVL::Borrar(Concesionario &dat)
    }
 }
 
-//Genera aleatoriamente el arbol binario de concesionarios
-ArbolAVL generarArbolConcesionarios(){
-    string zona[4] = {"A", "B", "C", "D"};
-    int num_concesionario[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
-    ArbolAVL concesionarios;
-    int aux = 0;
-    int randomIndex = 0;
-
-    for(int i=0; i<16; i++){
-        randomIndex = rand()%16;
-        aux = num_concesionario[i];
-        num_concesionario[i] = num_concesionario[randomIndex];
-        num_concesionario[randomIndex] = aux;
-    }
-    for(int i=0; i<16; i++){
-        Concesionario c = generarConcesionario(num_concesionario[i], zona[i%4]);
-        concesionarios.Insertar(c);
-    }
-
-    return concesionarios;
-}
-
 int ArbolAVL::alturaArbol(NodoArbol *a) {
    if (a==NULL)
-       return -1;
+       return 0;
    else
    {
        /* calcule la altura de cada subárbol */
@@ -214,15 +192,20 @@ void ArbolAVL::rotacionSimple(NodoArbol *a, bool giroizq) {
         a->derecho = aux->izquierdo;
         aux->izquierdo = a;
     }
+    raiz = aux;
 }
 
 void ArbolAVL::rotacionDoble(NodoArbol *a, bool giroizq) {
     if(giroizq){ //rotación izquierda-derecha
-        rotacionSimple(a->izquierdo, false);
+        NodoArbol *aux = a->izquierdo;
+        a->izquierdo = aux->derecho;
+        rotacionSimple(aux, false);
         rotacionSimple(a, true);
     }
     else{ //rotación derecha-izquierda
-        rotacionSimple(a->derecho, true);
+        NodoArbol *aux = a->derecho;
+        a->derecho = aux->izquierdo;
+        rotacionSimple(aux, true);
         rotacionSimple(a, false);
     }
 }
@@ -237,14 +220,12 @@ void ArbolAVL::balancear(NodoArbol *a) {
                 rotacionDoble(a, true);
             }
         }
-        else{
-            if(alturaArbol(a->derecho) - alturaArbol(a->izquierdo) == 2){ //Desequilibrio hacia la derecha
-                if(alturaArbol(a->derecho->derecho) >= alturaArbol(a->derecho->izquierdo)){ //Desequilibrio simple derecha-derecha
-                    rotacionSimple(a, false);
-                }
-                else{ //Desequilibrio doble derecha-izquierda
-                    rotacionDoble(a, false);
-                }
+        else if(alturaArbol(a->derecho) - alturaArbol(a->izquierdo) == 2){ //Desequilibrio hacia la derecha
+            if(alturaArbol(a->derecho->derecho) >= alturaArbol(a->derecho->izquierdo)){ //Desequilibrio simple derecha-derecha
+                rotacionSimple(a, false);
+            }
+            else{ //Desequilibrio doble derecha-izquierda
+                rotacionDoble(a, false);
             }
         }
     }
@@ -262,4 +243,26 @@ void ArbolAVL::dibujaArbol(NodoArbol* root, int cont) {
         cout << "-->" << root->dato.numero_concesionario << endl;
         dibujaArbol(root->izquierdo, cont+1);
     }
+}
+
+//Genera aleatoriamente el arbol binario de concesionarios
+ArbolAVL generarArbolConcesionarios(){
+    string zona[4] = {"A", "B", "C", "D"};
+    int num_concesionario[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+    ArbolAVL concesionarios;
+    int aux = 0;
+    int randomIndex = 0;
+
+    for(int i=0; i<16; i++){
+        randomIndex = rand()%16;
+        aux = num_concesionario[i];
+        num_concesionario[i] = num_concesionario[randomIndex];
+        num_concesionario[randomIndex] = aux;
+    }
+    for(int i=0; i<16; i++){
+        Concesionario c = generarConcesionario(num_concesionario[i], zona[i%4]);
+        concesionarios.Insertar(c);
+    }
+
+    return concesionarios;
 }

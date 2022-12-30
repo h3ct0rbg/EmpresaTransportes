@@ -178,7 +178,7 @@ int main()
             case 11:
                 system("cls");
                 cout << "\nRaiz del arbol: " << concesionarios.getRaiz()->dato.numero_concesionario << endl;
-                cout << "Altura del arbol: " << concesionarios.alturaArbol(concesionarios.getRaiz()) << endl;
+                cout << "Altura del arbol: " << concesionarios.alturaArbol(concesionarios.getRaiz())-1 << endl;
                 cout << "Factor de balanceo del arbol es " << concesionarios.factorBalanceo(concesionarios.getRaiz()) << endl;
                 cout << endl;
                 concesionarios.dibujaArbol(concesionarios.getRaiz());

@@ -231,7 +231,7 @@
 1671634813 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\listas_dobles.cpp
 	"listas_dobles.h"
 
-1671900937 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\main.cpp
+1672423198 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\main.cpp
 	<iostream>
 	"time.h"
 	"ArbolAVL.h"
@@ -350,7 +350,7 @@
 1671318729 source:e:\git\pecl2_empresatransportes\pecl2\lista.cpp
 	"lista.h"
 
-1672095333 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\arbolavl.cpp
+1672423239 source:c:\users\hbena\documents\github\pecl2_empresatransportes\pecl2\arbolavl.cpp
 	"ArbolAVL.h"
 	<string.h>
 	<iostream>

@@ -10,12 +10,13 @@ using namespace std;
 class NodoArbol {
 
     public:
-        NodoArbol(Concesionario dat, int fe=0, NodoArbol *izq=NULL, NodoArbol *der=NULL) :
-        dato(dat), factorEquilibrio(fe), izquierdo(izq), derecho(der) {}
+        NodoArbol(Concesionario dat, int fe=0, NodoArbol *izq=NULL, NodoArbol *der=NULL, NodoArbol *pad=NULL) :
+        dato(dat), factorEquilibrio(fe), izquierdo(izq), derecho(der), padre(pad) {}
         Concesionario dato;
         int factorEquilibrio;
         NodoArbol *izquierdo;
         NodoArbol *derecho;
+        NodoArbol *padre;
 };
 
 class ArbolAVL {

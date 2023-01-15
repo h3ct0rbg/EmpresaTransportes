@@ -20,12 +20,12 @@ void ArbolAVL::Podar(NodoArbol* &NodoArbol)
 //Insertar un int en el árbol AVL
 void ArbolAVL::Insertar(Concesionario dat)
 {
-   NodoArbol *padre = NULL;
+   NodoArbol *anterior = NULL;
 
    actual = raiz;
-   // Buscar el int en el árbol, manteniendo un puntero al NodoArbol padre
+   // Buscar el int en el árbol, manteniendo un puntero al NodoArbol anterior
    while(!Vacio(actual) && dat.numero_concesionario != actual->dato.numero_concesionario) {
-        padre = actual;
+        anterior = actual;
         if(dat.numero_concesionario > actual->dato.numero_concesionario) actual = actual->derecho;
         else if(dat.numero_concesionario < actual->dato.numero_concesionario) actual = actual->izquierdo;
    }
@@ -34,22 +34,24 @@ void ArbolAVL::Insertar(Concesionario dat)
    if(!Vacio(actual)){
         return;
    }
-   // Si padre es NULL, entonces el árbol estaba vacío, el nuevo NodoArbol será
+   // Si anterior es NULL, entonces el árbol estaba vacío, el nuevo NodoArbol será
    // el NodoArbol raiz
-   else if(Vacio(padre)){
+   else if(Vacio(anterior)){
         raiz = new NodoArbol(dat);
    }
-   // Si el int es menor que el que contiene el NodoArbol padre, lo insertamos
+   // Si el int es menor que el que contiene el NodoArbol anterior, lo insertamos
    // en la rama izquierda
-   else if(dat.numero_concesionario < padre->dato.numero_concesionario){
-        padre->izquierdo = new NodoArbol(dat);
+   else if(dat.numero_concesionario < anterior->dato.numero_concesionario){
+        anterior->izquierdo = new NodoArbol(dat);
+        anterior->izquierdo->padre = anterior;
    }
-   // Si el int es mayor que el que contiene el NodoArbol padre, lo insertamos
+   // Si el int es mayor que el que contiene el NodoArbol anterior, lo insertamos
    // en la rama derecha
-   else if(dat.numero_concesionario > padre->dato.numero_concesionario){
-        padre->derecho = new NodoArbol(dat);
+   else if(dat.numero_concesionario > anterior->dato.numero_concesionario){
+        anterior->derecho = new NodoArbol(dat);
+        anterior->derecho->padre = anterior;
    }
-   balancear(raiz);
+   balancear(anterior);
 }
 
 // Recorrido de árbol en inorden
@@ -101,6 +103,7 @@ void ArbolAVL::Borrar(Concesionario &dat)
             }
             delete actual; //Borrar el nodo
             actual = NULL;
+            balancear(padre);
             return;
          }
          else { // Si el valor está en el nodo actual, pero no es hoja
@@ -116,6 +119,7 @@ void ArbolAVL::Borrar(Concesionario &dat)
                 }
                 delete actual;
                 actual=NULL;
+                balancear(padre);
                 return;
             }
             else  if (actual->izquierdo==NULL){ //sólo tiene hijo derecho.
@@ -130,6 +134,7 @@ void ArbolAVL::Borrar(Concesionario &dat)
                                     }
                 delete actual;
                 actual=NULL;
+                balancear(padre);
                 return;
             }
             else{ // Tiene dos hijos. Busco sustituto. Nodo más a la derecha de la rama izquierda
@@ -184,27 +189,54 @@ void ArbolAVL::rotacionSimple(NodoArbol *a, bool giroizq) {
 
     if(giroizq){
         aux = a->izquierdo;
+
+        if(!Vacio(a->padre)){
+            if(a->dato.numero_concesionario <= a->padre->dato.numero_concesionario){
+                a->padre->izquierdo = aux;
+            }
+            else{
+                a->padre->derecho = aux;
+            }
+        }
+        else{ raiz = aux; }
+
         a->izquierdo = aux->derecho;
+        if(aux->derecho){ aux->derecho->padre = a; }
         aux->derecho = a;
+        aux->padre = a->padre;
+        a->padre = aux;
     }
     else{
         aux = a->derecho;
+
+        if(!Vacio(a->padre)){
+            if(a->dato.numero_concesionario <= a->padre->dato.numero_concesionario){
+                a->padre->izquierdo = aux;
+            }
+            else{
+                a->padre->derecho = aux;
+            }
+        }
+        else{ raiz = aux; }
+
         a->derecho = aux->izquierdo;
+        if(aux->izquierdo){ aux->izquierdo->padre = a; }
         aux->izquierdo = a;
+        aux->padre = a->padre;
+        a->padre = aux;
     }
-    raiz = aux;
 }
 
 void ArbolAVL::rotacionDoble(NodoArbol *a, bool giroizq) {
     if(giroizq){ //rotación izquierda-derecha
         NodoArbol *aux = a->izquierdo;
-        a->izquierdo = aux->derecho;
+        //a->izquierdo = aux->derecho;
         rotacionSimple(aux, false);
         rotacionSimple(a, true);
     }
     else{ //rotación derecha-izquierda
         NodoArbol *aux = a->derecho;
-        a->derecho = aux->izquierdo;
+        //a->derecho = aux->izquierdo;
         rotacionSimple(aux, true);
         rotacionSimple(a, false);
     }
@@ -228,6 +260,7 @@ void ArbolAVL::balancear(NodoArbol *a) {
                 rotacionDoble(a, false);
             }
         }
+        balancear(a->padre);
     }
 }
 
